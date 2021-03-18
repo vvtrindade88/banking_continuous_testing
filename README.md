@@ -1,18 +1,58 @@
-# Banking Continuous Testing
+# Banking Continuous Testing | RobotFramework
 
 ![Robot Framework](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXh5fs58nk232tXqRZOoByCW7Z1H6zPsHeGw&usqp=CAU)
 
-# Instruções para instalação do RobotFramework
+### O que é o RobotFramework
+**[RobotFramework]**(https://robotframework.org/) é uma estrutura de automação genérica de código aberto. Ele pode ser usado para automação de teste e automação de processo robótico (RPA).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+O **RobotFramework** tem suporte ativo, com muitas empresas líderes do setor usando-o no desenvolvimento de software.
+
+O **RobotFramework** é aberto e extensível e pode ser integrado virtualmente a qualquer outra ferramenta para criar soluções de automação poderosas e flexíveis. Ser open source também significa que o RobotFramework é gratuito para uso, sem custos de licenciamento.
+
+O **RobotFramework** _tem sintaxe fácil, utilizando palavras-chave legíveis por humanos_. Seus recursos podem ser estendidos por bibliotecas implementadas com Python ou Java. O framework possui um rico ecossistema ao seu redor, consistindo em bibliotecas e ferramentas que são desenvolvidas como projetos separados.
+
+Para mais informações, acesse o site oficial do **[RobotFramework]**(https://robotframework.org/)
 
 
-### Dependências (Bilbliotecas/Library)
+# Instruções para instalação do RobotFramework utilizadas no projeto
 
-* Library 1
-* Library 2
-* Library 3
-* Library 4
-* Library 5
+Para que o projeto **_Banking Continuous Testing_** ser executado, será necessário que o Python 3 (_ou o Python 2, porém já foi descontinuado_), o PIP (_gerenciador de pacotes do Python_) e as _Libraries_ utilizadas no projeto, além de logicamente baixar o projeto para a sua máquina :smile:
+
+
+### Libraries
+
+    * Faker[https://guykisel.github.io/robotframework-faker/]
+          Library geradora de dados fakes
+
+          **Instalação**
+          | pip install robotframework-faker
+
+          **Utilização**
+          | Library          FakerLibrary    locale=pt_BR
+
+
+    * RequestsLibrary[https://robotframework-requests.netlify.app/doc/requestslibrary]
+          Library responsáveis por gerar requisições HTTP.
+
+          **Instalação**
+          | pip install robotframework-requests
+
+          **Utilização**
+          | Library          RequestsLibrary
+
+
+    * Collections[http://robotframework.org/robotframework/latest/libraries/Collections.html]
+          Library que fornece palavras-chave para lidar com listas e dicionários.
+
+          **Instalação**
+          Library Standard :: não precisa de instalação
+
+          **Utilização**
+          | Library          Collections
+
+
+
+
+Para acessar outras libraries, [clique aqui](https://robotframework.org/#libraries)
 
 # Instruções para Execução dos Scripts de Teste
