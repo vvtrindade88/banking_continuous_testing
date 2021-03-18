@@ -14,7 +14,6 @@ Resource         ../../../apis/pix-dict/reivindicação/post/pix_dict_receive_cl
 Resource         ../../../resources/pix-dict/diretório/asserts.robot
 Resource         ../../../resources/pix-dict/reividincacao/asserts.robot
 Library          FakerLibrary    locale=pt_BR
-Library          Collections
 
 
 *** Test Cases ***
@@ -22,6 +21,9 @@ Library          Collections
 ###################################### Floxo Básico
 ###################################################
 Cenário: Criar Reivindicação de Posse para chave do tipo telefone
+    #####################################
+    ## Criando chave pix do tipo telefone
+    #####################################
     [Tags]  smoke_test  regression_test
     [Documentation]  Fluxo Básico
 
@@ -29,55 +31,247 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ${phone_pix}   Set Variable    +55219${phone}
     Set Global Variable  ${phone_pix}
 
+    ############################################################
     ## Criando primeira chave de endereçamento com status active
+    ############################################################
     criar holder individual ativo
     criar chave pix    phone    ${phone_pix}
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    ###################################################################
+    ## Coleta de váriaveis do Holder Owner (proprietário da chave pix)
+    ###################################################################
+    ${holder_owner}                         Set Variable   ${holder_external_key}
+    ${holder_name_owner}                    Set Variable   ${holder_name}
+    ${national_registration_owner}          Set Variable   ${national_registration}
+    ${account_owner}                        Set Variable   ${account_external_key}
+    ${account_number_owner}                 Set Variable   ${account_number}
+    ${entry_owner}                          Set Variable   ${entry_external_key}
+
+    Log  Holder Owner :: ${holder_owner}
+    Log  Account Owner :: ${account_owner}
+    Log  Account Number Owner :: ${account_number_owner}
+    Log  National Registration Holder Owner :: ${national_registration_owner}
+    Log  Entry Owner :: ${entry_owner}
+
+    ######################################
+    ## Confirmar propriedade da chave pix
+    #####################################
+    buscar verification code    ${holder_owner}    ${account_owner}    ${entry_owner}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_owner}    ${account_owner}    ${entry_owner}
+
     ## Asserts
     validar ativação da chave de endereçamento
 
+    ################################################################################
     ## Criando segunda chave de endereçamento com status waiting_ownership_claiming
+    ################################################################################
     criar holder individual ativo
     criar chave pix    phone    ${phone_pix}
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    #####################################################################
+    ## Coleta de váriaveis do Holder Claimer (reivindicador da chave pix)
+    #####################################################################
+    ${holder_claimer}   Set Variable   ${holder_external_key}
+    ${account_claimer}  Set Variable   ${account_external_key}
+    ${entry_claimer}    Set Variable   ${entry_external_key}
+    Log  Holder Claimer :: ${holder_claimer}
+    Log  Account Claimer :: ${account_claimer}
+    Log  Entry Claimer :: ${entry_claimer}
+
+    #####################################
+    ## Confirmar propriedade da chave pix
+    #####################################
+    buscar verification code    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
     #Asserts
+    #buscar chave pix
     validar status da chave após criação da reivindicação
 
-    criar reivindicação de posse
-    receber notificação de reivindicação    ${value}    ${account_number}    ${national_registration}    ${holder_name}    ${claim_external_key}
-    confirmar reivindicação de posse
-    buscar reivindicação de posse
+    ####################################################
+    ## [Holder Claimer] - Criando reivindicação de posse
+    ####################################################
+    criar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    open
+
+    ########################################################################################
+    ## [Holder Owner] - Recebendo notificação da reivindicação de posse [WAITING_RESOLUTION]
+    ########################################################################################
+    receber notificação de reivindicação    ${phone_pix}    ${account_number_owner}    ${national_registration_owner}    ${holder_name_owner}    ${claim_external_key}    WAITING_RESOLUTION
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    waiting_resolution
+
+    ##############################################
+    ## [Holder Owner] - Confirmando reivindicação
+    ##############################################
+    FOR  ${index}  IN RANGE  20
+        confirmar reivindicação de posse    ${holder_owner}    ${account_owner}    ${claim_external_key}
+        Exit For Loop If    '${response.json()["message"]}' == 'Claim confirmed successfully'
+        Sleep  10
+    END
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    confirmed
+
+    ###############################################################################
+    ## [Holder Owner] - Recebendo notificação da reivindicação de posse [CONFIRMED]
+    ###############################################################################
+    receber notificação de reivindicação    ${phone_pix}    ${account_number_owner}    ${national_registration_owner}    ${holder_name_owner}    ${claim_external_key}    CONFIRMED
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    waiting_entry_ownership_confirm_to_complete
+
+    ##########################################################
+    ## [Holder Claimer] - Confirmando propriedade da chave pix
+    ##########################################################
+    buscar verification code    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    completed
 
 
-# Cenário: Criar Reivindicação de Posse para chave do tipo email
-#     [Tags]  smoke_test
-#     [Documentation]  Fluxo de Exceção
-#
-#     ${email_pix}  Email
-#     Set Global Variable    ${email_pix}
-#
-#     ## Criando primeira chave de endereçamento com status active
-#     criar holder individual ativo
-#     criar chave pix    email    ${email_pix}
-#     ## Asserts
-#     validar criação da chave pix
-#
-#     buscar verification code
-#     confirmar propriedade da chave pix    ${verification_code}
-#     ## Asserts
-#     validar ativação da chave de endereçamento
-#
-#     ## Criando segunda chave de endereçamento com status waiting_ownership_claiming
-#     criar holder individual ativo
-#     criar chave pix    email    ${email_pix}
-#     ## Asserts
-#     validar criação da chave pix
-#
-#     buscar verification code
-#     confirmar propriedade da chave pix    ${verification_code}
-#     #Asserts
-#     validar status da chave após criação da reivindicação
+Cenário: Criar Reivindicação de Posse para chave do tipo email
+    #####################################
+    ## Criando chave pix do tipo telefone
+    #####################################
+    [Tags]  smoke_test  regression_test
+    [Documentation]  Fluxo Básico
+
+    ${email_pix}  Email
+    Set Global Variable    ${email_pix}
+
+    ############################################################
+    ## Criando primeira chave de endereçamento com status active
+    ############################################################
+    criar holder individual ativo
+    criar chave pix    email    ${email_pix}
+
+    ###################################################################
+    ## Coleta de váriaveis do Holder Owner (proprietário da chave pix)
+    ###################################################################
+    ${holder_owner}                         Set Variable   ${holder_external_key}
+    ${holder_name_owner}                    Set Variable   ${holder_name}
+    ${national_registration_owner}          Set Variable   ${national_registration}
+    ${account_owner}                        Set Variable   ${account_external_key}
+    ${account_number_owner}                 Set Variable   ${account_number}
+    ${entry_owner}                          Set Variable   ${entry_external_key}
+
+    Log  Holder Owner :: ${holder_owner}
+    Log  Account Owner :: ${account_owner}
+    Log  Account Number Owner :: ${account_number_owner}
+    Log  National Registration Holder Owner :: ${national_registration_owner}
+    Log  Entry Owner :: ${entry_owner}
+
+    ######################################
+    ## Confirmar propriedade da chave pix
+    #####################################
+    buscar verification code    ${holder_owner}    ${account_owner}    ${entry_owner}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_owner}    ${account_owner}    ${entry_owner}
+
+    ## Asserts
+    validar ativação da chave de endereçamento
+
+    ################################################################################
+    ## Criando segunda chave de endereçamento com status waiting_ownership_claiming
+    ################################################################################
+    criar holder individual ativo
+    criar chave pix    email    ${email_pix}
+
+    #####################################################################
+    ## Coleta de váriaveis do Holder Claimer (reivindicador da chave pix)
+    #####################################################################
+    ${holder_claimer}   Set Variable   ${holder_external_key}
+    ${account_claimer}  Set Variable   ${account_external_key}
+    ${entry_claimer}    Set Variable   ${entry_external_key}
+    Log  Holder Claimer :: ${holder_claimer}
+    Log  Account Claimer :: ${account_claimer}
+    Log  Entry Claimer :: ${entry_claimer}
+
+    #####################################
+    ## Confirmar propriedade da chave pix
+    #####################################
+    buscar verification code    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
+    #Asserts
+    #buscar chave pix
+    validar status da chave após criação da reivindicação
+
+    ####################################################
+    ## [Holder Claimer] - Criando reivindicação de posse
+    ####################################################
+    criar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    open
+
+    ########################################################################################
+    ## [Holder Owner] - Recebendo notificação da reivindicação de posse [WAITING_RESOLUTION]
+    ########################################################################################
+    receber notificação de reivindicação    ${email_pix}    ${account_number_owner}    ${national_registration_owner}    ${holder_name_owner}    ${claim_external_key}    WAITING_RESOLUTION
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    waiting_resolution
+
+    ##############################################
+    ## [Holder Owner] - Confirmando reivindicação
+    ##############################################
+    FOR  ${index}  IN RANGE  20
+        confirmar reivindicação de posse    ${holder_owner}    ${account_owner}    ${claim_external_key}
+        Exit For Loop If    '${response.json()["message"]}' == 'Claim confirmed successfully'
+        Sleep  10
+    END
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    confirmed
+
+    ###############################################################################
+    ## [Holder Owner] - Recebendo notificação da reivindicação de posse [CONFIRMED]
+    ###############################################################################
+    receber notificação de reivindicação    ${email_pix}    ${account_number_owner}    ${national_registration_owner}    ${holder_name_owner}    ${claim_external_key}    CONFIRMED
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    waiting_entry_ownership_confirm_to_complete
+
+    ##########################################################
+    ## [Holder Claimer] - Confirmando propriedade da chave pix
+    ##########################################################
+    buscar verification code    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_claimer}    ${account_claimer}    ${entry_claimer}
+
+    ##################################
+    ## Validar status da reivindicação
+    ##################################
+    buscar reivindicação de posse    ${holder_claimer}    ${account_claimer}    ${claim_external_key}
+    validar status da reivindicação    completed

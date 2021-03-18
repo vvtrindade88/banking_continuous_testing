@@ -5,7 +5,7 @@ Resource      ../../../../ambientes/staging/internal/create_session_staging_inte
 
 *** Keywords ***
 confirmar propriedade da chave pix
-    [Arguments]  ${verification_code}
+    [Arguments]  ${verification_code}  ${holder_external_key}  ${account_external_key}  ${entry_external_key}
     conectar pix-dict
 
     ${header}  Create Dictionary  Content-Type=application/json

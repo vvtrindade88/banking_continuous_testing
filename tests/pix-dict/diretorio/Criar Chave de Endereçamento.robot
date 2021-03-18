@@ -160,8 +160,9 @@ Cenário: Criar chave de endereçamento "Phone" utilizando uma chave já cadastr
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
 
     criar chave pix    phone    ${phone_pix}
     ## Asserts
@@ -180,8 +181,9 @@ Cenário: Criar chave de endereçamento "Email" utilizando uma chave já cadastr
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
 
     criar chave pix    email    ${email_pix}
     ## Asserts

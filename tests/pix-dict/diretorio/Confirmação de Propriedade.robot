@@ -29,8 +29,9 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Phone
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
     ## Asserts
     validar ativação da chave de endereçamento
 
@@ -47,8 +48,9 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Email
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
     ## Asserts
     validar ativação da chave de endereçamento
 
@@ -72,8 +74,9 @@ Cenário: Reenviar código de verificação
     #Asserts
     validar reenvio do codigo de verificação
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${verification_code}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
     ## Asserts
     validar ativação da chave de endereçamento
 
@@ -94,8 +97,9 @@ Cenário: Confirmar proprierdade de de chave de endereçamento utilizando o cód
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    123abc
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    123abc    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
     ## Asserts
     validar not found    Ownership entry not found    3003
 
@@ -112,7 +116,9 @@ Cenário: Confirmar proprierdade de de chave de endereçamento utilizando sem in
     ## Asserts
     validar criação da chave pix
 
-    buscar verification code
-    confirmar propriedade da chave pix    ${EMPTY}
+    buscar verification code    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+    #confirmar propriedade da chave pix    ${verification_code}
+    confirmar propriedade da chave pix    ${EMPTY}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
+
     ## Asserts
     validar not found    Ownership entry not found    3003
