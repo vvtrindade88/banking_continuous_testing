@@ -17,7 +17,7 @@ Library          FakerLibrary    locale=pt_BR
 
 
 *** Test Case ***
-Cenário: Cancelamento de Reivindiação pelo Reivindicador para chave do tipo Telefone
+Cenário: Cancelamento de Reivindiação pelo Reivindicador
     #####################################
     ## Criando chave pix do tipo telefone
     #####################################
