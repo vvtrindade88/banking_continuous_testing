@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Funcionalidade: Criar Reivindicação de Posse
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo reivindicar a posse de uma chave de endereçamento
+...              Desejo aceitar uma reivindicação de posse de uma chave de endereçamento
 Resource         ../../../hooks/accreditation/accreditation_create_holder_active.robot
 Resource         ../../../apis/pix-dict/diretorio/post/pix_dict_create_entry.robot
 Resource         ../../../apis/pix-dict/diretorio/get/pix_dict_verification_code.robot
