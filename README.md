@@ -1,6 +1,6 @@
 # Banking Continuous Testing | RobotFramework
 
-![Robot Framework](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXh5fs58nk232tXqRZOoByCW7Z1H6zPsHeGw&usqp=CAU)
+![RobotFramework](https://user-images.githubusercontent.com/80843100/111811437-cd509300-88b5-11eb-8651-67dfd902e839.jpg)
 
 ### O que é o RobotFramework
 **[RobotFramework](https://robotframework.org/)** é uma estrutura de automação genérica de código aberto. Ele pode ser usado para automação de teste e automação de processo robótico (RPA).
