@@ -11,4 +11,5 @@ solicitar aprovação do holder
     ...                                                             headers=${header}
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Set Global Variable           ${response}

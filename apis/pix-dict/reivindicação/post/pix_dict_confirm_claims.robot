@@ -10,5 +10,6 @@ confirmar reivindicação de posse
     ${response}        Post Request        pix-dict            /marketplaces/${marketplace_external_key}/banking/dict/holders/${holder_external_key}/accounts/${account_external_key}/claims/${claim_external_key}/confirm
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Log                           ${response.status_code}
     Set Global Variable           ${response}

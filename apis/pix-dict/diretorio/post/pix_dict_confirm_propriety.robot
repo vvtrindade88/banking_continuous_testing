@@ -17,5 +17,6 @@ confirmar propriedade da chave pix
     ...                                                        headers=${header}
 
     Log                         ${response.json()}
+    Log                         ${response.headers['X-REQUEST-ID']}
     Log                         ${response.status_code}
     Set Global Variable         ${response}

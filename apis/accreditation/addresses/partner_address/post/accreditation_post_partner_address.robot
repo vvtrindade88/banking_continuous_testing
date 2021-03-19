@@ -23,6 +23,7 @@ criar partner address
     ...                                                             headers=${header}
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Set Global Variable           ${response}
 
     ${address_external_key}       Set Variable If    ${response.status_code}==201    ${response.json()["id"]}

@@ -31,6 +31,7 @@ recebendo notificação de aprovação
     ...                                                             headers=${header}
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Set Global Variable           ${response}
 
     Should Be Equal As Strings    ${response.status_code}    200

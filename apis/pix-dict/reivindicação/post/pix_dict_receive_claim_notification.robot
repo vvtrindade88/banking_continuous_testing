@@ -40,3 +40,4 @@ receber notificação de reivindicação
     ...                                                        headers=${header}
 
     Log                         ${response.status_code}
+    Log                         ${response.headers['X-REQUEST-ID']}

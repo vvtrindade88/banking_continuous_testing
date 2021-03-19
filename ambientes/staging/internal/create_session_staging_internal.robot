@@ -29,7 +29,7 @@ conectar pix-dict
       Create Session    alias=pix-dict         url=${pix_dict_url_base}          disable_warnings=true
 
 conectar pix-payments
-      Create Session    alias=pix-dict         url=${${pix_dict_url_base}        disable_warnings=true
+      Create Session    alias=pix-payments     url=${pix_payments_url_base}    disable_warnings=true
 
 conectar subscription
       Create Session    alias=subscription     url=${subscription_url_base}      disable_warnings=true

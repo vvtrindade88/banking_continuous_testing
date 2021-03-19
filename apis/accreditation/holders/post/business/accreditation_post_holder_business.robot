@@ -5,6 +5,7 @@ Resource  ../../../../../ambientes/staging/internal/create_session_staging_inter
 
 *** Keywords ***
 criar holder business
+    conectar accreditation
     [Arguments]  ${holder_type}   ${business_name}   ${email_business}   ${national_registration}   ${revenue_business}    ${cnae}   ${legal_name}   ${establishment_format}   ${establishment_date}
 
     Set Global Variable    ${holder_type}
@@ -30,6 +31,7 @@ criar holder business
     ...                                                             headers=${header}
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Log                           ${body}
     Set Global Variable           ${response}
 

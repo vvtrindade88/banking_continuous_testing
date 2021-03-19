@@ -5,6 +5,7 @@ Resource  ../../../../../ambientes/staging/internal/create_session_staging_inter
 
 *** Keywords ***
 criar holder individual
+    conectar accreditation
     [Arguments]  ${holder_type}   ${holder_name}   ${email}   ${national_registration}   ${revenue}    ${birthday}   ${mothers_name}   ${identity_card}   ${pep}   ${cbo}
 
     Set Global Variable    ${holder_type}
@@ -28,6 +29,7 @@ criar holder individual
     ...                                                             headers=${header}
 
     Log                           ${response.json()}
+    Log                           ${response.headers['X-REQUEST-ID']}
     Log                           ${body}
     Set Global Variable           ${response}
 
