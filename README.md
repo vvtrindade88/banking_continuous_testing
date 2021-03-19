@@ -14,7 +14,7 @@ O **RobotFramework** _tem sintaxe fácil, utilizando palavras-chave legíveis po
 Para mais informações, acesse o site oficial do **[RobotFramework]**(https://robotframework.org/)
 
 
-# Instruções para instalação do RobotFramework utilizadas no projeto
+# Instruções para instalação do RobotFramework
 
 Para que o projeto **_Banking Continuous Testing_** ser executado, será necessário que o Python 3 (_ou o Python 2, porém já foi descontinuado_), o PIP (_gerenciador de pacotes do Python_) e as _Libraries_ utilizadas no projeto, além de logicamente baixar o projeto para a sua máquina :smile:
 
@@ -79,6 +79,6 @@ Exemplo:
 ![Captura de tela 2021-03-19 130746](https://user-images.githubusercontent.com/80843100/111809858-2f0ffd80-88b4-11eb-89b2-596723787900.jpg)
 
 
-### **Suites de Teste**
+# **Suites de Teste**
 
 Para ter mais informações sobre os testes realizados nas aplicações de Banking, acesse [Wiki do projeto](https://github.com/vvtrindade88/banking_continuous_testing/wiki)
