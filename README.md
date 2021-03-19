@@ -62,3 +62,23 @@ Para acessar outras libraries do RobotFrameworkk, [clique aqui](https://robotfra
 Todas as libraries possuem uma vasta documentação, então fique tranquilo :grin::grin::grin:
 
 # Instruções para Execução dos Scripts de Teste
+
+Para executar todo o projeto de teste de uma aplicação de Banking, é preciso que o comando abaixo seja executado dentro da pasta '/test/[nome aplicação]'
+
+Exemplo:
+> robot -d ..\..\results\pix-dict\  .
+
+![Captura de tela 2021-03-19 124257](https://user-images.githubusercontent.com/80843100/111807124-64ffb280-88b1-11eb-8241-4d8585140605.jpg)
+
+
+Para executar uma unica suite de teste, é preciso que o comando abaixo seja executado dentro da pasta '/test/[nome aplicação]'
+
+Exemplo:
+> robot -d ..\..\results\pix-dict\  "reivindicacao\Criar Reivindicação de Posse.robot"
+
+![Captura de tela 2021-03-19 130746](https://user-images.githubusercontent.com/80843100/111809858-2f0ffd80-88b4-11eb-89b2-596723787900.jpg)
+
+
+### **Suites de Teste**
+
+Para ter mais informações sobre os testes realizados nas aplicações de Banking, acesse [Wiki do projeto](https://github.com/vvtrindade88/banking_continuous_testing/wiki)
