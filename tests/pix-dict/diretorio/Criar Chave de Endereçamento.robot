@@ -19,7 +19,8 @@ Cenário: Criando Chave de Endereçamento do tipo EVP
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    evp    ${EMPTY}
+    criar chave pix    type=evp
+    ...                value=${EMPTY}
     ## Asserts
     validar criação da chave pix
 
@@ -32,7 +33,8 @@ Cenário: Criando Chave de Endereçamento do tipo Telefone
     Set Global Variable  ${phone_pix}
 
     criar holder individual ativo
-    criar chave pix    phone    ${phone_pix}
+    criar chave pix    type=phone
+    ...                value=${phone_pix}
     ## Asserts
     validar criação da chave pix
 
@@ -44,7 +46,8 @@ Cenário: Criando Chave de Endereçamento do tipo Email
     Set Global Variable    ${email_pix}
 
     criar holder individual ativo
-    criar chave pix    email    ${email_pix}
+    criar chave pix    type=email
+    ...                value=${email_pix}
     ## Asserts
     validar criação da chave pix
 
@@ -53,7 +56,8 @@ Cenário: Criando Chave de Endereçamento do tipo CPF
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    national_registration    ${EMPTY}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
     ## Asserts
     validar criação da chave pix
 
@@ -62,7 +66,8 @@ Cenário: Criando Chave de Endereçamento do tipo CNPJ
     [Documentation]  Fluxo Básico
 
     criar holder business ativo
-    criar chave pix    national_registration    ${EMPTY}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
     ## Asserts
     validar criação da chave pix
 
@@ -77,7 +82,8 @@ Cenário: Extrapolar a quantidade máxima de solicitações de criação de chav
 
     criar holder individual ativo
     FOR  ${index}  IN RANGE  6
-        criar chave pix    evp    ${EMPTY}
+        criar chave pix    type=evp
+        ...                value=${EMPTY}
     END
     ## Asserts
     validar precondition failed    Maximum entry count allowed reached  4001
@@ -88,7 +94,8 @@ Cenário: Extrapolar a quantidade máxima de solicitações de criação de chav
 
     criar holder business ativo
     FOR  ${index}  IN RANGE  21
-        criar chave pix    evp    ${EMPTY}
+        criar chave pix    type=evp
+        ...                value=${EMPTY}
     END
     ## Asserts
     validar precondition failed    Maximum entry count allowed reached  4001
@@ -98,7 +105,8 @@ Cenário: Criar chave de endereçamento "EVP" enviando valores
     [Documentation]  Fluxo de Exceção
 
     criar holder individual ativo
-    criar chave pix    evp    abc1234
+    criar chave pix    type=evp
+    ...                value=abc1234
     ## Asserts
     validar invalid request    Key value must not be informed for national_registration or evp types  1005
 
@@ -107,7 +115,8 @@ Cenário: Criar chave de endereçamento "National Registration" enviando valores
     [Documentation]  Fluxo de Exceção
 
     criar holder individual ativo
-    criar chave pix    national_registration    11569538042
+    criar chave pix    type=national_registration
+    ...                value=11569538042
     ## Asserts
     validar invalid request    Key value must not be informed for national_registration or evp types  1005
 
@@ -116,7 +125,8 @@ Cenário: Criar chave de endereçamento "Phone" sem informar o número do telefo
      [Documentation]  Fluxo de Exceção
 
      criar holder individual ativo
-     criar chave pix    phone    ${EMPTY}
+     criar chave pix    type=phone
+     ...                value=${EMPTY}
      ## Asserts
      validar invalid request    Phone is required  1000
 
@@ -125,7 +135,8 @@ Cenário: Criar chave de endereçamento "Phone" com telefone no formato inválid
     [Documentation]  Fluxo de Exceção
 
     criar holder individual ativo
-    criar chave pix    phone    (21)959632145
+    criar chave pix    type=phone
+    ...                value=(21)959632145
     ## Asserts
     validar invalid request    Key value is not a valid phone format  1001
 
@@ -134,7 +145,8 @@ Cenário: Criar chave de endereçamento "Email" sem informar o email
     [Documentation]  Fluxo de Exceção
 
     criar holder individual ativo
-    criar chave pix    email    ${EMPTY}
+    criar chave pix    type=email
+    ...                value=${EMPTY}
     ## Asserts
     validar invalid request    Email is required  1000
 
@@ -143,7 +155,8 @@ Cenário: Criar chave de endereçamento "Email" com email no formato invalido
     [Documentation]  Fluxo de Exceção
 
     criar holder individual ativo
-    criar chave pix    email    email.com.br
+    criar chave pix    type=email
+    ...                value=email.com.br
     ## Asserts
     validar invalid request    Key value is not a valid email format  1001
 
@@ -156,7 +169,8 @@ Cenário: Criar chave de endereçamento "Phone" utilizando uma chave já cadastr
     Set Global Variable  ${phone_pix}
 
     criar holder individual ativo
-    criar chave pix    phone    ${phone_pix}
+    criar chave pix    type=phone
+    ...                value=${phone_pix}
     ## Asserts
     validar criação da chave pix
 
@@ -164,7 +178,8 @@ Cenário: Criar chave de endereçamento "Phone" utilizando uma chave já cadastr
     #confirmar propriedade da chave pix    ${verification_code}
     confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
 
-    criar chave pix    phone    ${phone_pix}
+    criar chave pix    type=phone
+    ...                value=${phone_pix}
     ## Asserts
     validar precondition failed    Entry already created    4000
 
@@ -177,7 +192,8 @@ Cenário: Criar chave de endereçamento "Email" utilizando uma chave já cadastr
     Set Global Variable    ${email_pix}
 
     criar holder individual ativo
-    criar chave pix    email    ${email_pix}
+    criar chave pix    type=email
+    ...                value=${email_pix}
     ## Asserts
     validar criação da chave pix
 
@@ -185,6 +201,7 @@ Cenário: Criar chave de endereçamento "Email" utilizando uma chave já cadastr
     #confirmar propriedade da chave pix    ${verification_code}
     confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
 
-    criar chave pix    email    ${email_pix}
+    criar chave pix    type=email
+    ...                value=${email_pix}
     ## Asserts
     validar precondition failed    Entry already created    4000

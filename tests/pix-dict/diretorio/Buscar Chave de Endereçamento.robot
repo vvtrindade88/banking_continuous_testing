@@ -21,7 +21,9 @@ Cenário: Buscar chave de endereçamento do tipo EVP
 
     criar holder individual ativo
     criar chave pix    evp    ${EMPTY}
-    buscar chave pix
+    buscar chave pix    ${holder_external_key}
+    ...                 ${account_external_key}
+    ...                 ${entry_external_key}
     ## Asserts
     validar busca da chave pix
 
@@ -35,7 +37,9 @@ Cenário: Buscar chave de endereçamento do tipo Phone
 
     criar holder individual ativo
     criar chave pix    phone    ${phone_pix}
-    buscar chave pix
+    buscar chave pix    ${holder_external_key}
+    ...                 ${account_external_key}
+    ...                 ${entry_external_key}
     ## Asserts
     validar busca da chave pix
 
@@ -48,7 +52,9 @@ Cenário: Buscar chave de endereçamento do tipo Email
 
     criar holder individual ativo
     criar chave pix    email    ${email_pix}
-    buscar chave pix
+    buscar chave pix    ${holder_external_key}
+    ...                 ${account_external_key}
+    ...                 ${entry_external_key}
     ## Asserts
     validar busca da chave pix
 
@@ -58,7 +64,9 @@ Cenário: Buscar chave de endereçamento do tipo CPF
 
     criar holder individual ativo
     criar chave pix    national_registration    ${EMPTY}
-    buscar chave pix
+    buscar chave pix    ${holder_external_key}
+    ...                 ${account_external_key}
+    ...                 ${entry_external_key}
     ## Asserts
     validar busca da chave pix
 
@@ -68,6 +76,8 @@ Cenário: Buscar chave de endereçamento do tipo CNPJ
 
     criar holder business ativo
     criar chave pix    national_registration    ${EMPTY}
-    buscar chave pix
+    buscar chave pix    ${holder_external_key}
+    ...                 ${account_external_key}
+    ...                 ${entry_external_key}
     ## Asserts
     validar busca da chave pix

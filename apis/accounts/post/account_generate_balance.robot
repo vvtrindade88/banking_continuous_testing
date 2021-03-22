@@ -6,9 +6,8 @@ Library          FakerLibrary    locale=pt_BR
 
 *** Keywords ***
 gerar saldo para account
-    conectar accounts
-
     [Arguments]  ${account_external_key}
+    conectar accounts
     ${uuid}  Uuid 4
 
     conectar accounts
@@ -17,15 +16,15 @@ gerar saldo para account
     ...                             "operations": [
     ...                                             {
     ...                                               "amount": 9000000000000,
-    ...                                               "authorization_code": ${uuid},
-    ...                                               "transaction_id": ${uuid},
-    ...                                               "id": pm.variables.get("uuid"),
+    ...                                               "authorization_code": "${uuid}",
+    ...                                               "transaction_id": "${uuid}",
+    ...                                               "id": "${uuid}",
     ...                                               "id_checking_account": "${account_external_key}",
     ...                                               "transfer_date": "2020-02-20T20:58:06.510Z",
     ...                                               "fee": 0,
     ...                                               "description": "Teste",
     ...                                               "object_type": "transfer",
-    ...                                               "object_id": ${uuid},
+    ...                                               "object_id": "${uuid}",
     ...                                               "dflag": "ACTIVE",
     ...                                               "created_at": "2019-10-14T20:58:06.510Z",
     ...                                               "type": "Transfer"
@@ -37,7 +36,6 @@ gerar saldo para account
     ...                                                        data=${body}
     ...                                                        headers=${header}
 
-    Log                         ${response.json()}
-    Log                         ${response.headers['X-REQUEST-ID']}
-    Log                         ${response.status_code}
-    Set Global Variable         ${response}
+    Run Keyword If    '${response.status_code}' == 200    Log  ${response.json()}
+    Run Keyword If    '${response.status_code}' == 200    Log  ${response.headers['X-REQUEST-ID']}
+    Run Keyword If    '${response.status_code}' == 200    Log  ${response.status_code}

@@ -1,15 +1,17 @@
 *** Settings ***
 Documentation    Funcionalidade: Criar Chave de Endereçamento
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo criar uma chave de endereçamento PIX associada à minha conta
+...              Desejo criar uma pagamento PIX
 Resource         ../../../hooks/pix-dict/pix_dict_create_active_key_pix.robot
 Resource         ../../../apis/accreditation/holders/post/business/accreditation_post_holder_business.robot
 Resource         ../../../apis/accreditation/holders/post/individual/accreditation_post_holder_individual.robot
 Resource         ../../../apis/pix-payments/post/pix_payments_create_pix_payment.robot
+Resource         ../../../apis/pix-payments/post/pix_payments_confirm_pix_payment.robot
+Resource         ../../../apis/pix-payments/get/pix_payments_get_pix_payment.robot
 Resource         ../../../asserts/pix-payments/envio/asserts.robot
 
 *** Variables ***
-${amount}                                 2000
+${amount}                                 100
 ${debtor_account_psp_code}                19468242
 ${debtor_account_psp_name}                Zoop Tecnologia e Meios de Pagamento S.A.
 ${debtor_account_type}                    cacc
@@ -23,7 +25,7 @@ ${pix_description}                        Envio de PIX
 
 *** Test Cases ***
 Cenário: Criar pagamento PIX de para holder business utilizando dados completos da conta de destino
-
+  [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Individual
   criar chave pix ativa    holder_type=business    pix_type=email
 
   criar pagamento pix com dados completos    amount=${amount}
@@ -34,10 +36,8 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                                        creditor_national_registration=${creditor_national_registration}
   ...                                        creditor_psp=${creditor_psp}
   ...                                        pix_description=${pix_description}
-  ...                                        pix_transaction_id=${EMPTY}
 
-  validar pagamento pix    transaction_id=${EMPTY}
-  ...                      marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=pending
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}
@@ -60,9 +60,11 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                      creditor_account_type=${creditor_account_type}
   ...                      refunded_amount=0
 
-
 Cenário: Criar pagamento PIX de para holder individual utilizando dados completos da conta de destino
-  criar chave pix ativa    holder_type=individual    pix_type=email
+  [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Business
+
+  criar chave pix ativa    holder_type=individual
+  ...                      pix_type=email
 
   criar pagamento pix com dados completos    amount=${amount}
   ...                                        creditor_account_number=${creditor_account_number}
@@ -72,10 +74,8 @@ Cenário: Criar pagamento PIX de para holder individual utilizando dados complet
   ...                                        creditor_national_registration=${creditor_national_registration}
   ...                                        creditor_psp=${creditor_psp}
   ...                                        pix_description=${pix_description}
-  ...                                        pix_transaction_id=${EMPTY}
 
-  validar pagamento pix    transaction_id=${EMPTY}
-  ...                      marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=pending
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}

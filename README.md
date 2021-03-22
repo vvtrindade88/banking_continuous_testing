@@ -19,6 +19,11 @@ Para mais informações, acesse o site oficial do **[RobotFramework]**(https://r
 Para que o projeto **_Banking Continuous Testing_** ser executado, será necessário que o Python 3 (_ou o Python 2, porém já foi descontinuado_), o PIP (_gerenciador de pacotes do Python_) e as _Libraries_ utilizadas no projeto, além de logicamente baixar o projeto para a sua máquina :smile:
 
 
+### Instalação do Python 3
+
+[https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+
 ### Instalação do RobotFramework
 Após a instalação do Python 3 e do PIP, o próximo passo será a instalação **RobotFramework**. Para isso, execute o seguinte comando:
 > pip install robotframework
@@ -59,6 +64,19 @@ O **RobotFramework** já possui algumas libraries padrões, porém algumas ainda
 
 Para acessar outras libraries do RobotFrameworkk, [clique aqui](https://robotframework.org/#libraries)
 
+
+* [Slack Notifications](https://pypi.org/project/robotframework-notifications/) :: Library responsável por notificações via Slack das execuções das Suites do RobotFramework.
+
+    **Instalação**
+    > pip install robotframework-notifications
+
+    **Utilização na linha de Comando**
+    > robot --listener "RobotNotifications";"https://webhook_url";end_test;sumary -d caminhoDaPastaResult  .
+
+
+Para acessar outras libraries do RobotFrameworkk, [clique aqui](https://robotframework.org/#libraries)
+
+
 Todas as libraries possuem uma vasta documentação, então fique tranquilo :grin::grin::grin:
 
 # Instruções para Execução dos Scripts de Teste
@@ -71,7 +89,7 @@ Exemplo:
 ![Captura de tela 2021-03-19 124257](https://user-images.githubusercontent.com/80843100/111807124-64ffb280-88b1-11eb-8241-4d8585140605.jpg)
 
 
-Para executar uma unica suite de teste, é preciso que o comando abaixo seja executado dentro da pasta '/test/[nome aplicação]'
+Para executar uma única suite de teste, é preciso que o comando abaixo seja executado dentro da pasta '/test/[nome aplicação]'
 
 Exemplo:
 > robot -d ..\..\results\pix-dict\  "reivindicacao\Criar Reivindicação de Posse.robot"
