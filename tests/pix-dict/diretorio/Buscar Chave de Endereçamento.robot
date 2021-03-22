@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation    Funcionalidade: Criar Chave de Endereçamento
+Documentation    Funcionalidade: Buscar Chave de Endereçamento
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo criar uma chave de endereçamento PIX associada à minha conta
+...              Desejo buscar uma chave de endereçamento PIX associada à minha conta
 Resource         ../../../hooks/accreditation/accreditation_create_holder_active.robot
 Resource         ../../../apis/pix-dict/diretorio/post/pix_dict_create_entry.robot
 Resource         ../../../apis/pix-dict/diretorio/get/pix_dict_verification_code.robot

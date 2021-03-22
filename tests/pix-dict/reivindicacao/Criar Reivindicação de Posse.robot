@@ -15,6 +15,9 @@ Resource         ../../../asserts/pix-dict/diretório/asserts.robot
 Resource         ../../../asserts/pix-dict/reividincacao/asserts.robot
 Library          FakerLibrary    locale=pt_BR
 
+*** Variables ***
+${psp_code}                19468242
+${psp_name}                Zoop Tecnologia e Meios de Pagamento S.A.
 
 *** Test Cases ***
 ###################################################
@@ -24,7 +27,7 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     #####################################
     ## Criando chave pix do tipo telefone
     #####################################
-    [Tags]  smoke_test  regression_test
+    [Tags]  smoke_test
     [Documentation]  Fluxo Básico
 
     ${phone}  Random Number  digits=8  fix_len=True
@@ -42,6 +45,7 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ## Coleta de váriaveis do Holder Owner (proprietário da chave pix)
     ###################################################################
     ${holder_owner}                         Set Variable   ${holder_external_key}
+    ${holder_type_owner}                    Set Variable   ${holder_type}
     ${holder_name_owner}                    Set Variable   ${holder_name}
     ${national_registration_owner}          Set Variable   ${national_registration}
     ${account_owner}                        Set Variable   ${account_external_key}
@@ -88,6 +92,7 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ## Coleta de váriaveis do Holder Claimer (reivindicador da chave pix)
     #####################################################################
     ${holder_claimer}                         Set Variable   ${holder_external_key}
+    ${holder_type_claimer}                    Set Variable   ${holder_type}
     ${holder_name_claimer}                    Set Variable   ${holder_name}
     ${national_registration_claimer}          Set Variable   ${national_registration}
     ${account_claimer}                        Set Variable   ${account_external_key}
@@ -137,7 +142,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=open
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=open
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ########################################################################################
     ## [Holder Owner] - Recebendo notificação da reivindicação de posse [WAITING_RESOLUTION]
@@ -156,7 +188,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=waiting_resolution
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=waiting_resolution
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ##############################################
     ## [Holder Owner] - Confirmando reivindicação
@@ -176,7 +235,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=confirmed
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=confirmed
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ###############################################################################
     ## [Holder Owner] - Recebendo notificação da reivindicação de posse [CONFIRMED]
@@ -195,7 +281,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=waiting_entry_ownership_confirm_to_complete
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=waiting_entry_ownership_confirm_to_complete
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ##########################################################
     ## [Holder Claimer] - Confirmando propriedade da chave pix
@@ -216,14 +329,41 @@ Cenário: Criar Reivindicação de Posse para chave do tipo telefone
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=completed
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=completed
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
 
 Cenário: Criar Reivindicação de Posse para chave do tipo email
     #####################################
     ## Criando chave pix do tipo telefone
     #####################################
-    [Tags]  smoke_test  regression_test
+    [Tags]  smoke_test
     [Documentation]  Fluxo Básico
 
     ${email_pix}  Email
@@ -240,6 +380,7 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ## Coleta de váriaveis do Holder Owner (proprietário da chave pix)
     ###################################################################
     ${holder_owner}                         Set Variable   ${holder_external_key}
+    ${holder_type_owner}                    Set Variable   ${holder_type}
     ${holder_name_owner}                    Set Variable   ${holder_name}
     ${national_registration_owner}          Set Variable   ${national_registration}
     ${account_owner}                        Set Variable   ${account_external_key}
@@ -286,6 +427,7 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ## Coleta de váriaveis do Holder Claimer (reivindicador da chave pix)
     #####################################################################
     ${holder_claimer}                         Set Variable   ${holder_external_key}
+    ${holder_type_claimer}                    Set Variable   ${holder_type}
     ${holder_name_claimer}                    Set Variable   ${holder_name}
     ${national_registration_claimer}          Set Variable   ${national_registration}
     ${account_claimer}                        Set Variable   ${account_external_key}
@@ -335,7 +477,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=open
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=open
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ########################################################################################
     ## [Holder Owner] - Recebendo notificação da reivindicação de posse [WAITING_RESOLUTION]
@@ -354,7 +523,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=waiting_resolution
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=waiting_resolution
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ##############################################
     ## [Holder Owner] - Confirmando reivindicação
@@ -374,7 +570,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=confirmed
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=confirmed
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ###############################################################################
     ## [Holder Owner] - Recebendo notificação da reivindicação de posse [CONFIRMED]
@@ -393,7 +616,34 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=waiting_entry_ownership_confirm_to_complete
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=waiting_entry_ownership_confirm_to_complete
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim
 
     ##########################################################
     ## [Holder Claimer] - Confirmando propriedade da chave pix
@@ -414,4 +664,31 @@ Cenário: Criar Reivindicação de Posse para chave do tipo email
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar status da reivindicação    claim_status=completed
+    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    ...                      claim_type=OWNERSHIP
+    ...                      claim_status=completed
+    ...                      key_value=${value}
+    ...                      key_type=${type}
+    ...                      claimer_name=${holder_name_claimer}
+    ...                      claimer_national_registration=${national_registration_claimer}
+    ...                      claimer_type=${holder_type_claimer}
+    ...                      claimer_marketplace=${marketplace_external_key}
+    ...                      claimer_holder_id=${holder_claimer}
+    ...                      claimer_account_id=${account_claimer}
+    ...                      claimer_routing_number=${account_routing_number_claimer}
+    ...                      claimer_account_number=${account_number_claimer}
+    ...                      claimer_account_type=CACC
+    ...                      claimer_psp_code=${psp_code}
+    ...                      claimer_psp_name=${psp_name}
+    ...                      donor_name=${holder_name_owner}
+    ...                      donor_national_registration=${national_registration_owner}
+    ...                      donor_type=${holder_type_owner}
+    ...                      donor_marketplace=${marketplace_external_key}
+    ...                      donor_holder_id=${holder_owner}
+    ...                      donor_account_id=${account_owner}
+    ...                      donor_routing_number=${account_routing_number_owner}
+    ...                      donor_account_number=${account_number_owner}
+    ...                      donor_account_type=CACC
+    ...                      donor_psp_code=${psp_code}
+    ...                      donor_psp_name=${psp_name}
+    ...                      claim_resource=pix.claim

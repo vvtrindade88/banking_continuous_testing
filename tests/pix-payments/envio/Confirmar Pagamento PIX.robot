@@ -24,7 +24,7 @@ ${creditor_psp}                           17192451
 ${pix_description}                        Envio de PIX
 
 *** Test Cases ***
-Cenário: Criar pagamento PIX de para holder business utilizando dados completos da conta de destino
+Cenário: Confirmar pagamento PIX de para holder business utilizando dados completos da conta de destino
   [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Individual
   criar chave pix ativa    holder_type=business    pix_type=email
 
@@ -87,14 +87,13 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                      creditor_account_type=${creditor_account_type}
   ...                      refunded_amount=0
 
-  FOR  ${index}  IN RANGE  20
+  FOR  ${index}  IN RANGE  60
       buscar pagamento pix    holder_external_key=${holder_external_key}
       ...                     account_external_key=${account_external_key}
       ...                     entry_external_key=${entry_external_key}
       ...                     payment_external_key=${payment_external_key}
 
       Exit For Loop If    '${response.json()["status"]}' == 'succeeded'
-      Sleep  10
   END
 
   validar pagamento pix    marketplace_external_key=${marketplace_external_key}
@@ -120,8 +119,7 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                      creditor_account_type=${creditor_account_type}
   ...                      refunded_amount=0
 
-Cenário: Criar pagamento PIX de para holder individual utilizando dados completos da conta de destino
-  [Tags]  smoke_test
+Cenário: Confirmar pagamento PIX de para holder individual utilizando dados completos da conta de destino
   [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Business
 
   criar chave pix ativa    holder_type=individual
@@ -186,14 +184,13 @@ Cenário: Criar pagamento PIX de para holder individual utilizando dados complet
   ...                      creditor_account_type=${creditor_account_type}
   ...                      refunded_amount=0
 
-  FOR  ${index}  IN RANGE  20
+  FOR  ${index}  IN RANGE  60
       buscar pagamento pix    holder_external_key=${holder_external_key}
       ...                     account_external_key=${account_external_key}
       ...                     entry_external_key=${entry_external_key}
       ...                     payment_external_key=${payment_external_key}
 
       Exit For Loop If    '${response.json()["status"]}' == 'succeeded'
-      Sleep  10
   END
 
   validar pagamento pix    marketplace_external_key=${marketplace_external_key}

@@ -38,6 +38,3 @@ criar chave pix ativa
 
     Run Keyword If    '${pix_type}' == 'phone'     confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
     ...	ELSE IF	'${pix_type}' == 'email'           confirmar propriedade da chave pix    ${verification_code}    ${holder_external_key}    ${account_external_key}    ${entry_external_key}
-
-    ## Asserts
-    validar ativação da chave de endereçamento

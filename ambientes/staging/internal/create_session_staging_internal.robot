@@ -1,6 +1,6 @@
 *** Settings ***
-Library   RequestsLibrary
-Library   Collections
+Library          RequestsLibrary
+Library          Collections
 
 *** Variables ***
 ${marketplace_external_key}  f71a8951368a4cc085cf7875ff44e61c
