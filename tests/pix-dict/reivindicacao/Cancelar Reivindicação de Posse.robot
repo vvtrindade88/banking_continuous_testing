@@ -162,6 +162,7 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
         cancelar reivindicação de posse     holder_external_key=${holder_owner}
         ...                                 account_external_key=${account_owner}
         ...                                 claim_external_key=${claim_external_key}
+
         Exit For Loop If    '${response.json()["message"]}' == 'Claim cancelled successfully'
         #Sleep  10
     END
@@ -172,6 +173,7 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     buscar reivindicação de posse    holder_external_key=${holder_claimer}
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
+
     validar status da reivindicação    claim_status=waiting_entry_ownership_confirm_to_cancel
 
 
