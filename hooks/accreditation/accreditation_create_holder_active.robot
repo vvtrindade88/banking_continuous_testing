@@ -102,7 +102,7 @@ criar holder business ativo
     Set Global Variable      ${identity_card}
 
     ## Criar Holder
-    criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}    national_registration=${national_registration}
+    criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}    national_registration=${national_registration}
     ...                      revenue_business=${revenue_business}     cnae=${cnae}    legal_name=${legal_name}    establishment_format=mei
     ...                      establishment_date=${establishment_date}
     Should Be Equal As Integers    ${response.status_code}  201

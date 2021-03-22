@@ -70,7 +70,7 @@ Quando eu preencher todos os dados necessários para o cadastro do holder busine
   Set Global Variable      ${national_registration}
   Set Global Variable      ${establishment_format}
 
-  criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}    national_registration=${national_registration}
+  criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}    national_registration=${national_registration}
   ...                      revenue_business=${revenue_business}     cnae=${cnae}    legal_name=${legal_name}    establishment_format=${establishment_format}
   ...                      establishment_date=${establishment_date}
 
@@ -114,7 +114,7 @@ E realizar o cadastro de um sócio pessoal jurídica
   ${partner_business_national_registration}  Replace String    ${partner_business_national_registration}    -    ${EMPTY}
   ${partner_business_national_registration}  Replace String    ${partner_business_national_registration}    /    ${EMPTY}
 
-  criar partner business    partner_business_type=business    partner_business_name=${partner_business_name}    partner_business_email=${partner_business_email}
+  criar partner business    partner_business_type=business    partner_holder_name=${partner_holder_name}    partner_business_email=${partner_business_email}
   ...                       partner_business_national_registration=${partner_business_national_registration}   partner_business_revenue=${partner_business_revenue}    partner_business_cnae=${partner_business_cnae}
   ...                       partner_business_legal_name=${partner_business_legal_name}    partner_business_adm=${partner_business_adm}   partner_business_percentage=${partner_business_percentage}
   ...                       partner_business_establishment_format=${partner_business_establishment_format}   partner_business_establishment_date=${partner_business_establishment_date}
@@ -299,39 +299,39 @@ Mas para holder business não preencho o campo
 
   Set Global Variable      ${national_registration}
 
-  Run Keyword If  '${field}' == 'type'    criar holder business    holder_type=${EMPTY}    business_name=${business_name}    email_business=${email_business}
+  Run Keyword If  '${field}' == 'type'    criar holder business    holder_type=${EMPTY}    holder_name=${holder_name}    email_business=${email_business}
   ...                                                              national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                              legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'name'  criar holder business    holder_type=business    business_name=${EMPTY}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'name'  criar holder business    holder_type=business    holder_name=${EMPTY}    email_business=${email_business}
   ...                                                        national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                        legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'email'  criar holder business    holder_type=business    business_name=${business_name}    email_business=${EMPTY}
+  ...	ELSE IF	'${field}' == 'email'  criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${EMPTY}
   ...                                                         national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                         legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'national_registration'   criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'national_registration'   criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                                          national_registration=${EMPTY}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                                          legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'revenue'    criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'revenue'    criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                             national_registration=${national_registration}  revenue_business="${EMPTY}"    cnae=${cnae}
   ...                                                             legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'cnae'       criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'cnae'       criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                             national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${EMPTY}
   ...                                                             legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'legal_name'       criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'legal_name'       criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                                   national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                                   legal_name=${EMPTY}    establishment_format=${establishment_format}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'establishment_format'       criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'establishment_format'       criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                                             national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                                             legal_name=${legal_name}    establishment_format=${EMPTY}  establishment_date=${establishment_date}
 
-  ...	ELSE IF	'${field}' == 'establishment_date'       criar holder business    holder_type=business    business_name=${business_name}    email_business=${email_business}
+  ...	ELSE IF	'${field}' == 'establishment_date'       criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}
   ...                                                                           national_registration=${national_registration}  revenue_business=${revenue_business}     cnae=${cnae}
   ...                                                                           legal_name=${legal_name}    establishment_format=${establishment_format}  establishment_date=${EMPTY}
 

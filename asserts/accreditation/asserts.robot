@@ -23,7 +23,7 @@ validar holder business
 
   Should Be Equal As Strings    ${response.json()["type"]}                      business
   Should Be Equal As Strings    ${response.json()["status"]}                    ${assert_holder_status}
-  Should Be Equal As Strings    ${response.json()["name"]}                      ${business_name}
+  Should Be Equal As Strings    ${response.json()["name"]}                      ${holder_name}
   Should Be Equal As Strings    ${response.json()["email"]}                     ${email_business}
   Should Be Equal As Strings    ${response.json()["national_registration"]}     ${national_registration}
   Should Be Equal As Numbers    ${response.json()["revenue"]}                   ${revenue_business}

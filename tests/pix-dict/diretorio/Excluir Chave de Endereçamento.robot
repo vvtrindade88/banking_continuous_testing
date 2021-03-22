@@ -8,7 +8,7 @@ Resource         ../../../apis/pix-dict/diretorio/post/pix_dict_create_entry.rob
 Resource         ../../../apis/pix-dict/diretorio/get/pix_dict_verification_code.robot
 Resource         ../../../apis/pix-dict/diretorio/post/pix_dict_confirm_propriety.robot
 Resource         ../../../apis/pix-dict/diretorio/delete/pix_dict_delete_entry.robot
-Resource         ../../../resources/pix-dict/diretório/asserts.robot
+Resource         ../../../asserts/pix-dict/diretório/asserts.robot
 Library          FakerLibrary    locale=pt_BR
 
 *** Test Case ***

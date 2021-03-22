@@ -6,11 +6,7 @@ Resource      ../../../ambientes/staging/internal/create_session_staging_interna
 *** Keywords ***
 criar pagamento pix com dados completos
     conectar pix-payments
-    [Arguments]  ${amount}  ${creditor_account_number}  ${creditor_routing_number}   ${creditor_account_type}
-    ...          ${creditor_name}  ${creditor_national_registration}   ${creditor_psp}   ${pix_description}  ${pix_transaction_id}
-
-    Set Global Variable    ${type}
-    Set Global Variable    ${value}
+    [Arguments]  ${amount}  ${creditor_account_number}  ${creditor_routing_number}   ${creditor_account_type}  ${creditor_name}  ${creditor_national_registration}   ${creditor_psp}   ${pix_description}  ${pix_transaction_id}
 
     ${header}  Create Dictionary  Content-Type=application/json
     ${body}     Catenate    {

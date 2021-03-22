@@ -11,8 +11,8 @@ Resource         ../../../apis/pix-dict/reivindicação/post/pix_dict_create_cla
 Resource         ../../../apis/pix-dict/reivindicação/get/pix_dict_get_claims.robot
 Resource         ../../../apis/pix-dict/reivindicação/post/pix_dict_cancel_claims.robot
 Resource         ../../../apis/pix-dict/reivindicação/post/pix_dict_receive_claim_notification.robot
-Resource         ../../../resources/pix-dict/diretório/asserts.robot
-Resource         ../../../resources/pix-dict/reividincacao/asserts.robot
+Resource         ../../../asserts/pix-dict/diretório/asserts.robot
+Resource         ../../../asserts/pix-dict/reividincacao/asserts.robot
 Library          FakerLibrary    locale=pt_BR
 
 

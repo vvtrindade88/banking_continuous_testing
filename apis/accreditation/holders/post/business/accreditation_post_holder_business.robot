@@ -6,16 +6,16 @@ Resource  ../../../../../ambientes/staging/internal/create_session_staging_inter
 *** Keywords ***
 criar holder business
     conectar accreditation
-    [Arguments]  ${holder_type}   ${business_name}   ${email_business}   ${national_registration}   ${revenue_business}    ${cnae}   ${legal_name}   ${establishment_format}   ${establishment_date}
+    [Arguments]  ${holder_type}   ${holder_name}   ${email_business}   ${national_registration}   ${revenue_business}    ${cnae}   ${legal_name}   ${establishment_format}   ${establishment_date}
 
     Set Global Variable    ${holder_type}
-    Set Global Variable    ${business_name}
+    Set Global Variable    ${holder_name}
     Set Global Variable    ${legal_name}
 
     ${header}  Create Dictionary  Content-Type=application/json
     ${body}     Catenate    {
     ...                         "type": "${holder_type}",
-    ...                         "name": "${business_name}",
+    ...                         "name": "${holder_name}",
     ...                         "email": "${email_business}",
     ...                         "national_registration": "${national_registration}",
     ...                         "revenue": ${revenue_business},

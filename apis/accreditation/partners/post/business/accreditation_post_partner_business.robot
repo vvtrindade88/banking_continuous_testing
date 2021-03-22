@@ -5,13 +5,13 @@ Resource  ../../../../../ambientes/staging/internal/create_session_staging_inter
 
 *** Keywords ***
 criar partner business
-    [Arguments]  ${partner_business_type}   ${partner_business_name}   ${partner_business_email}   ${partner_business_national_registration}   ${partner_business_revenue}    ${partner_business_cnae}
+    [Arguments]  ${partner_business_type}   ${partner_holder_name}   ${partner_business_email}   ${partner_business_national_registration}   ${partner_business_revenue}    ${partner_business_cnae}
     ...          ${partner_business_legal_name}   ${partner_business_adm}   ${partner_business_percentage}   ${partner_business_establishment_format}   ${partner_business_establishment_date}
 
     ${header}  Create Dictionary  Content-Type=application/json
     ${body}     Catenate    {
     ...                         "type": "${partner_business_type}",
-    ...                         "name": "${partner_business_name}",
+    ...                         "name": "${partner_holder_name}",
     ...                         "email": "${partner_business_email}",
     ...                         "national_registration": "${partner_business_national_registration}",
     ...                         "revenue": ${partner_business_revenue},

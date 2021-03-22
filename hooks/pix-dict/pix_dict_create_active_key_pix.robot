@@ -6,7 +6,7 @@ Resource         ../../apis/pix-dict/diretorio/post/pix_dict_create_entry.robot
 Resource         ../../apis/pix-dict/diretorio/get/pix_dict_verification_code.robot
 Resource         ../../apis/pix-dict/diretorio/post/pix_dict_confirm_propriety.robot
 Resource         ../../apis/accounts/post/account_generate_balance.robot
-Resource         ../../resources/pix-dict/diretório/asserts.robot
+Resource         ../../asserts/pix-dict/diretório/asserts.robot
 
 *** Keywords ***
 criar chave pix ativa

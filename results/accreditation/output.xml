@@ -91,7 +91,7 @@
 <kw name="criar holder business" library="accreditation_post_holder_business">
 <arguments>
 <arg>holder_type=business</arg>
-<arg>business_name=${business_name}</arg>
+<arg>holder_name=${holder_name}</arg>
 <arg>email_business=${email_business}</arg>
 <arg>national_registration=${national_registration}</arg>
 <arg>revenue_business=${revenue_business}</arg>
@@ -116,7 +116,7 @@
 <arguments>
 <arg>{</arg>
 <arg>"type": "${holder_type}",</arg>
-<arg>"name": "${business_name}",</arg>
+<arg>"name": "${holder_name}",</arg>
 <arg>"email": "${email_business}",</arg>
 <arg>"national_registration": "${national_registration}",</arg>
 <arg>"revenue": ${revenue_business},</arg>
@@ -223,7 +223,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:26.458" starttime="20210224 15:54:26.457"></status>
 </kw>
@@ -465,7 +465,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:26.851" starttime="20210224 15:54:26.850"></status>
 </kw>
@@ -719,7 +719,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:27.209" starttime="20210224 15:54:27.208"></status>
 </kw>
@@ -963,7 +963,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:27.662" starttime="20210224 15:54:27.661"></status>
 </kw>
@@ -1285,7 +1285,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:28.079" starttime="20210224 15:54:28.078"></status>
 </kw>
@@ -1529,7 +1529,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:28.434" starttime="20210224 15:54:28.433"></status>
 </kw>
@@ -1783,7 +1783,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:28.788" starttime="20210224 15:54:28.787"></status>
 </kw>
@@ -2027,7 +2027,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:29.273" starttime="20210224 15:54:29.272"></status>
 </kw>
@@ -2271,7 +2271,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:29.695" starttime="20210224 15:54:29.695"></status>
 </kw>
@@ -2515,7 +2515,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:30.089" starttime="20210224 15:54:30.089"></status>
 </kw>
@@ -2640,7 +2640,7 @@ json=None</msg>
 <kw name="criar partner business" library="accreditation_post_partner_business">
 <arguments>
 <arg>partner_business_type=business</arg>
-<arg>partner_business_name=${partner_business_name}</arg>
+<arg>partner_holder_name=${partner_holder_name}</arg>
 <arg>partner_business_email=${partner_business_email}</arg>
 <arg>partner_business_national_registration=${partner_business_national_registration}</arg>
 <arg>partner_business_revenue=${partner_business_revenue}</arg>
@@ -2667,7 +2667,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${partner_business_type}",</arg>
-<arg>"name": "${partner_business_name}",</arg>
+<arg>"name": "${partner_holder_name}",</arg>
 <arg>"email": "${partner_business_email}",</arg>
 <arg>"national_registration": "${partner_business_national_registration}",</arg>
 <arg>"revenue": ${partner_business_revenue},</arg>
@@ -2929,7 +2929,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:30.662" starttime="20210224 15:54:30.662"></status>
 </kw>
@@ -3183,7 +3183,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:31.026" starttime="20210224 15:54:31.025"></status>
 </kw>
@@ -3397,7 +3397,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:31.430" starttime="20210224 15:54:31.430"></status>
 </kw>
@@ -3677,7 +3677,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:31.826" starttime="20210224 15:54:31.825"></status>
 </kw>
@@ -3839,7 +3839,7 @@ json=None</msg>
 <kw name="criar holder business" library="accreditation_post_holder_business">
 <arguments>
 <arg>holder_type=business</arg>
-<arg>business_name=${business_name}</arg>
+<arg>holder_name=${holder_name}</arg>
 <arg>email_business=${email_business}</arg>
 <arg>national_registration=${national_registration}</arg>
 <arg>revenue_business=${revenue_business}</arg>
@@ -3864,7 +3864,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${holder_type}",</arg>
-<arg>"name": "${business_name}",</arg>
+<arg>"name": "${holder_name}",</arg>
 <arg>"email": "${email_business}",</arg>
 <arg>"national_registration": "${national_registration}",</arg>
 <arg>"revenue": ${revenue_business},</arg>
@@ -3971,7 +3971,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:32.494" starttime="20210224 15:54:32.493"></status>
 </kw>
@@ -4213,7 +4213,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:32.860" starttime="20210224 15:54:32.859"></status>
 </kw>
@@ -4467,7 +4467,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:33.202" starttime="20210224 15:54:33.201"></status>
 </kw>
@@ -4711,7 +4711,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:33.700" starttime="20210224 15:54:33.699"></status>
 </kw>
@@ -5033,7 +5033,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:34.081" starttime="20210224 15:54:34.081"></status>
 </kw>
@@ -5277,7 +5277,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:34.434" starttime="20210224 15:54:34.434"></status>
 </kw>
@@ -5531,7 +5531,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:34.795" starttime="20210224 15:54:34.794"></status>
 </kw>
@@ -5775,7 +5775,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:35.194" starttime="20210224 15:54:35.193"></status>
 </kw>
@@ -6019,7 +6019,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:35.666" starttime="20210224 15:54:35.665"></status>
 </kw>
@@ -6263,7 +6263,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:36.066" starttime="20210224 15:54:36.065"></status>
 </kw>
@@ -6388,7 +6388,7 @@ json=None</msg>
 <kw name="criar partner business" library="accreditation_post_partner_business">
 <arguments>
 <arg>partner_business_type=business</arg>
-<arg>partner_business_name=${partner_business_name}</arg>
+<arg>partner_holder_name=${partner_holder_name}</arg>
 <arg>partner_business_email=${partner_business_email}</arg>
 <arg>partner_business_national_registration=${partner_business_national_registration}</arg>
 <arg>partner_business_revenue=${partner_business_revenue}</arg>
@@ -6415,7 +6415,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${partner_business_type}",</arg>
-<arg>"name": "${partner_business_name}",</arg>
+<arg>"name": "${partner_holder_name}",</arg>
 <arg>"email": "${partner_business_email}",</arg>
 <arg>"national_registration": "${partner_business_national_registration}",</arg>
 <arg>"revenue": ${partner_business_revenue},</arg>
@@ -6677,7 +6677,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:36.636" starttime="20210224 15:54:36.635"></status>
 </kw>
@@ -6931,7 +6931,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:36.997" starttime="20210224 15:54:36.997"></status>
 </kw>
@@ -7145,7 +7145,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:37.372" starttime="20210224 15:54:37.371"></status>
 </kw>
@@ -7425,7 +7425,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:37.736" starttime="20210224 15:54:37.735"></status>
 </kw>
@@ -7587,7 +7587,7 @@ json=None</msg>
 <kw name="criar holder business" library="accreditation_post_holder_business">
 <arguments>
 <arg>holder_type=business</arg>
-<arg>business_name=${business_name}</arg>
+<arg>holder_name=${holder_name}</arg>
 <arg>email_business=${email_business}</arg>
 <arg>national_registration=${national_registration}</arg>
 <arg>revenue_business=${revenue_business}</arg>
@@ -7612,7 +7612,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${holder_type}",</arg>
-<arg>"name": "${business_name}",</arg>
+<arg>"name": "${holder_name}",</arg>
 <arg>"email": "${email_business}",</arg>
 <arg>"national_registration": "${national_registration}",</arg>
 <arg>"revenue": ${revenue_business},</arg>
@@ -7719,7 +7719,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:38.447" starttime="20210224 15:54:38.447"></status>
 </kw>
@@ -7961,7 +7961,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:38.824" starttime="20210224 15:54:38.823"></status>
 </kw>
@@ -8215,7 +8215,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:39.297" starttime="20210224 15:54:39.297"></status>
 </kw>
@@ -8459,7 +8459,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:39.728" starttime="20210224 15:54:39.727"></status>
 </kw>
@@ -8781,7 +8781,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:40.106" starttime="20210224 15:54:40.105"></status>
 </kw>
@@ -9025,7 +9025,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:40.471" starttime="20210224 15:54:40.471"></status>
 </kw>
@@ -9279,7 +9279,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:40.837" starttime="20210224 15:54:40.837"></status>
 </kw>
@@ -9523,7 +9523,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:41.269" starttime="20210224 15:54:41.267"></status>
 </kw>
@@ -9767,7 +9767,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:41.776" starttime="20210224 15:54:41.776"></status>
 </kw>
@@ -10011,7 +10011,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:42.190" starttime="20210224 15:54:42.190"></status>
 </kw>
@@ -10136,7 +10136,7 @@ json=None</msg>
 <kw name="criar partner business" library="accreditation_post_partner_business">
 <arguments>
 <arg>partner_business_type=business</arg>
-<arg>partner_business_name=${partner_business_name}</arg>
+<arg>partner_holder_name=${partner_holder_name}</arg>
 <arg>partner_business_email=${partner_business_email}</arg>
 <arg>partner_business_national_registration=${partner_business_national_registration}</arg>
 <arg>partner_business_revenue=${partner_business_revenue}</arg>
@@ -10163,7 +10163,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${partner_business_type}",</arg>
-<arg>"name": "${partner_business_name}",</arg>
+<arg>"name": "${partner_holder_name}",</arg>
 <arg>"email": "${partner_business_email}",</arg>
 <arg>"national_registration": "${partner_business_national_registration}",</arg>
 <arg>"revenue": ${partner_business_revenue},</arg>
@@ -10425,7 +10425,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:42.749" starttime="20210224 15:54:42.748"></status>
 </kw>
@@ -10679,7 +10679,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:43.113" starttime="20210224 15:54:43.113"></status>
 </kw>
@@ -10893,7 +10893,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:43.498" starttime="20210224 15:54:43.497"></status>
 </kw>
@@ -11173,7 +11173,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:43.882" starttime="20210224 15:54:43.882"></status>
 </kw>
@@ -11335,7 +11335,7 @@ json=None</msg>
 <kw name="criar holder business" library="accreditation_post_holder_business">
 <arguments>
 <arg>holder_type=business</arg>
-<arg>business_name=${business_name}</arg>
+<arg>holder_name=${holder_name}</arg>
 <arg>email_business=${email_business}</arg>
 <arg>national_registration=${national_registration}</arg>
 <arg>revenue_business=${revenue_business}</arg>
@@ -11360,7 +11360,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${holder_type}",</arg>
-<arg>"name": "${business_name}",</arg>
+<arg>"name": "${holder_name}",</arg>
 <arg>"email": "${email_business}",</arg>
 <arg>"national_registration": "${national_registration}",</arg>
 <arg>"revenue": ${revenue_business},</arg>
@@ -11467,7 +11467,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:44.541" starttime="20210224 15:54:44.541"></status>
 </kw>
@@ -11709,7 +11709,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:44.888" starttime="20210224 15:54:44.887"></status>
 </kw>
@@ -11963,7 +11963,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:45.281" starttime="20210224 15:54:45.280"></status>
 </kw>
@@ -12207,7 +12207,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:45.701" starttime="20210224 15:54:45.701"></status>
 </kw>
@@ -12529,7 +12529,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:46.058" starttime="20210224 15:54:46.058"></status>
 </kw>
@@ -12773,7 +12773,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:46.481" starttime="20210224 15:54:46.480"></status>
 </kw>
@@ -13027,7 +13027,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:46.829" starttime="20210224 15:54:46.829"></status>
 </kw>
@@ -13271,7 +13271,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:47.230" starttime="20210224 15:54:47.230"></status>
 </kw>
@@ -13515,7 +13515,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:47.666" starttime="20210224 15:54:47.666"></status>
 </kw>
@@ -13759,7 +13759,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:48.053" starttime="20210224 15:54:48.051"></status>
 </kw>
@@ -13884,7 +13884,7 @@ json=None</msg>
 <kw name="criar partner business" library="accreditation_post_partner_business">
 <arguments>
 <arg>partner_business_type=business</arg>
-<arg>partner_business_name=${partner_business_name}</arg>
+<arg>partner_holder_name=${partner_holder_name}</arg>
 <arg>partner_business_email=${partner_business_email}</arg>
 <arg>partner_business_national_registration=${partner_business_national_registration}</arg>
 <arg>partner_business_revenue=${partner_business_revenue}</arg>
@@ -13911,7 +13911,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${partner_business_type}",</arg>
-<arg>"name": "${partner_business_name}",</arg>
+<arg>"name": "${partner_holder_name}",</arg>
 <arg>"email": "${partner_business_email}",</arg>
 <arg>"national_registration": "${partner_business_national_registration}",</arg>
 <arg>"revenue": ${partner_business_revenue},</arg>
@@ -14173,7 +14173,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:48.613" starttime="20210224 15:54:48.612"></status>
 </kw>
@@ -14427,7 +14427,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:48.955" starttime="20210224 15:54:48.955"></status>
 </kw>
@@ -14641,7 +14641,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:49.318" starttime="20210224 15:54:49.318"></status>
 </kw>
@@ -14921,7 +14921,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:49.678" starttime="20210224 15:54:49.678"></status>
 </kw>
@@ -15083,7 +15083,7 @@ json=None</msg>
 <kw name="criar holder business" library="accreditation_post_holder_business">
 <arguments>
 <arg>holder_type=business</arg>
-<arg>business_name=${business_name}</arg>
+<arg>holder_name=${holder_name}</arg>
 <arg>email_business=${email_business}</arg>
 <arg>national_registration=${national_registration}</arg>
 <arg>revenue_business=${revenue_business}</arg>
@@ -15108,7 +15108,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${holder_type}",</arg>
-<arg>"name": "${business_name}",</arg>
+<arg>"name": "${holder_name}",</arg>
 <arg>"email": "${email_business}",</arg>
 <arg>"national_registration": "${national_registration}",</arg>
 <arg>"revenue": ${revenue_business},</arg>
@@ -15215,7 +15215,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:50.344" starttime="20210224 15:54:50.343"></status>
 </kw>
@@ -15457,7 +15457,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:50.692" starttime="20210224 15:54:50.691"></status>
 </kw>
@@ -15711,7 +15711,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:51.040" starttime="20210224 15:54:51.039"></status>
 </kw>
@@ -15955,7 +15955,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:51.638" starttime="20210224 15:54:51.638"></status>
 </kw>
@@ -16277,7 +16277,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:52.000" starttime="20210224 15:54:52.000"></status>
 </kw>
@@ -16521,7 +16521,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:52.354" starttime="20210224 15:54:52.353"></status>
 </kw>
@@ -16775,7 +16775,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:52.716" starttime="20210224 15:54:52.716"></status>
 </kw>
@@ -17019,7 +17019,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:53.132" starttime="20210224 15:54:53.131"></status>
 </kw>
@@ -17263,7 +17263,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:53.519" starttime="20210224 15:54:53.519"></status>
 </kw>
@@ -17507,7 +17507,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:53.929" starttime="20210224 15:54:53.929"></status>
 </kw>
@@ -17632,7 +17632,7 @@ json=None</msg>
 <kw name="criar partner business" library="accreditation_post_partner_business">
 <arguments>
 <arg>partner_business_type=business</arg>
-<arg>partner_business_name=${partner_business_name}</arg>
+<arg>partner_holder_name=${partner_holder_name}</arg>
 <arg>partner_business_email=${partner_business_email}</arg>
 <arg>partner_business_national_registration=${partner_business_national_registration}</arg>
 <arg>partner_business_revenue=${partner_business_revenue}</arg>
@@ -17659,7 +17659,7 @@ json=None</msg>
 <arguments>
 <arg>{</arg>
 <arg>"type": "${partner_business_type}",</arg>
-<arg>"name": "${partner_business_name}",</arg>
+<arg>"name": "${partner_holder_name}",</arg>
 <arg>"email": "${partner_business_email}",</arg>
 <arg>"national_registration": "${partner_business_national_registration}",</arg>
 <arg>"revenue": ${partner_business_revenue},</arg>
@@ -17921,7 +17921,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:54.480" starttime="20210224 15:54:54.480"></status>
 </kw>
@@ -18175,7 +18175,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:54.833" starttime="20210224 15:54:54.833"></status>
 </kw>
@@ -18389,7 +18389,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:55.224" starttime="20210224 15:54:55.223"></status>
 </kw>
@@ -18669,7 +18669,7 @@ json=None</msg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${response.json()["name"]}</arg>
-<arg>${business_name}</arg>
+<arg>${holder_name}</arg>
 </arguments>
 <status status="PASS" endtime="20210224 15:54:55.582" starttime="20210224 15:54:55.581"></status>
 </kw>
