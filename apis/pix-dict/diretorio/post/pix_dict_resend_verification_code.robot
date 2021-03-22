@@ -5,6 +5,7 @@ Resource      ../../../../ambientes/staging/internal/create_session_staging_inte
 
 *** Keywords ***
 reenviar verification code
+    [Arguments]  ${holder_external_key}  ${account_external_key}  ${entry_external_key}
     conectar pix-dict
 
     ${header}  Create Dictionary  Content-Type=application/json

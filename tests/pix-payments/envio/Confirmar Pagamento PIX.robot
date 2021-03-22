@@ -25,7 +25,6 @@ ${pix_description}                        Envio de PIX
 
 *** Test Cases ***
 Cenário: Criar pagamento PIX de para holder business utilizando dados completos da conta de destino
-  [Tags]  smoke_test
   [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Individual
   criar chave pix ativa    holder_type=business    pix_type=email
 
@@ -122,6 +121,7 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                      refunded_amount=0
 
 Cenário: Criar pagamento PIX de para holder individual utilizando dados completos da conta de destino
+  [Tags]  smoke_test
   [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Business
 
   criar chave pix ativa    holder_type=individual

@@ -21,13 +21,29 @@ Cenário: Excluir chave de endereçamento EVP
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    evp    ${EMPTY}
+    criar chave pix    type=evp
+    ...                value=${EMPTY}
     ## Asserts
-    validar criação da chave pix
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${EMPTY}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
-    excluir chave pix
+    excluir chave pix    holder_external_key=${holder_external_key}
+    ...                  account_external_key=${account_external_key}
+    ...                  entry_external_key=${entry_external_key}
     ##Asserts
-    validar exclusão da chave pix
+    validar exclusão da chave pix    message=Entry removed successfully
 
 Cenário: Excluir Chave de Endereçamento do tipo Telefone
     [Tags]  smoke_test  regression_test
@@ -38,13 +54,29 @@ Cenário: Excluir Chave de Endereçamento do tipo Telefone
     Set Global Variable  ${phone_pix}
 
     criar holder individual ativo
-    criar chave pix    phone    ${phone_pix}
+    criar chave pix    type=phone
+    ...                value=${phone_pix}
     ## Asserts
-    validar criação da chave pix
+    validar chave pix               key_status=waiting_ownership_verification
+    ...                             key_type=${type}
+    ...                             key_value=${value}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
-    excluir chave pix
+    excluir chave pix    holder_external_key=${holder_external_key}
+    ...                  account_external_key=${account_external_key}
+    ...                  entry_external_key=${entry_external_key}
     ##Asserts
-    validar exclusão da chave pix
+    validar exclusão da chave pix    message=Entry removed successfully
 
 Cenário: Excluir Chave de Endereçamento do tipo Email
     [Tags]  smoke_test  regression_test
@@ -54,36 +86,84 @@ Cenário: Excluir Chave de Endereçamento do tipo Email
     Set Global Variable    ${email_pix}
 
     criar holder individual ativo
-    criar chave pix    email    ${email_pix}
+    criar chave pix    type=email
+    ...                value=${email_pix}
     ## Asserts
-    validar criação da chave pix
+    validar chave pix               key_status=waiting_ownership_verification
+    ...                             key_type=${type}
+    ...                             key_value=${value}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
-    excluir chave pix
+    excluir chave pix    holder_external_key=${holder_external_key}
+    ...                  account_external_key=${account_external_key}
+    ...                  entry_external_key=${entry_external_key}
     ##Asserts
-    validar exclusão da chave pix
+    validar exclusão da chave pix    message=Entry removed successfully
 
 Cenário: Excluir Chave de Endereçamento do tipo CPF
     [Tags]  smoke_test  regression_test
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    national_registration    ${EMPTY}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
     ## Asserts
-    validar criação da chave pix
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${national_registration}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
-    excluir chave pix
+    excluir chave pix    holder_external_key=${holder_external_key}
+    ...                  account_external_key=${account_external_key}
+    ...                  entry_external_key=${entry_external_key}
     ##Asserts
-    validar exclusão da chave pix
+    validar exclusão da chave pix    message=Entry removed successfully
 
 Cenário: Excluir Chave de Endereçamento do tipo CNPJ
     [Tags]  smoke_test  regression_test
     [Documentation]  Fluxo Básico
 
     criar holder business ativo
-    criar chave pix    national_registration    ${EMPTY}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
     ## Asserts
-    validar criação da chave pix
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${national_registration}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${legal_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
-    excluir chave pix
+    excluir chave pix    holder_external_key=${holder_external_key}
+    ...                  account_external_key=${account_external_key}
+    ...                  entry_external_key=${entry_external_key}
     ##Asserts
-    validar exclusão da chave pix
+    validar exclusão da chave pix    message=Entry removed successfully

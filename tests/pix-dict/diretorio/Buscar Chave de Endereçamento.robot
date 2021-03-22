@@ -20,12 +20,29 @@ Cenário: Buscar chave de endereçamento do tipo EVP
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    evp    ${EMPTY}
-    buscar chave pix    ${holder_external_key}
-    ...                 ${account_external_key}
-    ...                 ${entry_external_key}
+    criar chave pix    type=evp
+    ...                value=${EMPTY}
+
+    buscar chave pix    holder_external_key=${holder_external_key}
+    ...                 account_external_key=${account_external_key}
+    ...                 entry_external_key=${entry_external_key}
     ## Asserts
     validar busca da chave pix
+
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${national_registration}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
 Cenário: Buscar chave de endereçamento do tipo Phone
     [Tags]  smoke_test
@@ -36,12 +53,29 @@ Cenário: Buscar chave de endereçamento do tipo Phone
     Set Global Variable  ${phone_pix}
 
     criar holder individual ativo
-    criar chave pix    phone    ${phone_pix}
-    buscar chave pix    ${holder_external_key}
-    ...                 ${account_external_key}
-    ...                 ${entry_external_key}
+    criar chave pix    type=phone
+    ...                value=${phone_pix}
+
+    buscar chave pix    holder_external_key=${holder_external_key}
+    ...                 account_external_key=${account_external_key}
+    ...                 entry_external_key=${entry_external_key}
     ## Asserts
     validar busca da chave pix
+
+    validar chave pix               key_status=waiting_ownership_verification
+    ...                             key_type=${type}
+    ...                             key_value=${value}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
 Cenário: Buscar chave de endereçamento do tipo Email
     [Tags]  smoke_test  regression_test
@@ -51,33 +85,84 @@ Cenário: Buscar chave de endereçamento do tipo Email
     Set Global Variable    ${email_pix}
 
     criar holder individual ativo
-    criar chave pix    email    ${email_pix}
-    buscar chave pix    ${holder_external_key}
-    ...                 ${account_external_key}
-    ...                 ${entry_external_key}
+    criar chave pix    type=email
+    ...                value=${email_pix}
+
+    buscar chave pix    holder_external_key=${holder_external_key}
+    ...                 account_external_key=${account_external_key}
+    ...                 entry_external_key=${entry_external_key}
     ## Asserts
     validar busca da chave pix
+
+    validar chave pix               key_status=waiting_ownership_verification
+    ...                             key_type=${type}
+    ...                             key_value=${value}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
 Cenário: Buscar chave de endereçamento do tipo CPF
     [Tags]  smoke_test  regression_test
     [Documentation]  Fluxo Básico
 
     criar holder individual ativo
-    criar chave pix    national_registration    ${EMPTY}
-    buscar chave pix    ${holder_external_key}
-    ...                 ${account_external_key}
-    ...                 ${entry_external_key}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
+
+    buscar chave pix    holder_external_key=${holder_external_key}
+    ...                 account_external_key=${account_external_key}
+    ...                 entry_external_key=${entry_external_key}
     ## Asserts
     validar busca da chave pix
+
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${national_registration}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${holder_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
 
 Cenário: Buscar chave de endereçamento do tipo CNPJ
     [Tags]  smoke_test  regression_test
     [Documentation]  Fluxo Básico
 
     criar holder business ativo
-    criar chave pix    national_registration    ${EMPTY}
-    buscar chave pix    ${holder_external_key}
-    ...                 ${account_external_key}
-    ...                 ${entry_external_key}
+    criar chave pix    type=national_registration
+    ...                value=${EMPTY}
+
+    buscar chave pix    holder_external_key=${holder_external_key}
+    ...                 account_external_key=${account_external_key}
+    ...                 entry_external_key=${entry_external_key}
     ## Asserts
     validar busca da chave pix
+
+    validar chave pix               key_status=active
+    ...                             key_type=${type}
+    ...                             key_value=${national_registration}
+    ...                             account_external_key=${account_external_key}
+    ...                             marketplace_external_key=${marketplace_external_key}
+    ...                             holder_external_key=${holder_external_key}
+    ...                             account_number=${account_number}
+    ...                             account_routing_number=${account_routing_number}
+    ...                             account_type=CACC
+    ...                             owner_key_name=${legal_name}
+    ...                             national_registration=${national_registration}
+    ...                             holder_type=${holder_type}
+    ...                             psp_code=19468242
+    ...                             psp_name=Zoop Tecnologia e Meios de Pagamento S.A.
