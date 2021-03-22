@@ -7,7 +7,6 @@ Library          FakerLibrary    locale=pt_BR
 *** Keywords ***
 gerar saldo para account
     [Arguments]  ${account_external_key}
-    conectar accounts
     ${uuid}  Uuid 4
 
     conectar accounts

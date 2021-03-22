@@ -17,6 +17,8 @@ ${card-manager_url_base}     https://banking-card-manager-internal.staging.zoop.
 ${billing_url_base}          https://banking-billing-internal.staging.zoop.tech
 ${payments_url_base}         https://banking-payments-internal.staging.zoop.tech
 
+${gf_settlement_url_base}    https://zoop-settlement-pix-internal-homolog.staging.zoop.tech
+
 
 *** Keywords ***
 conectar accreditation
@@ -48,3 +50,6 @@ conectar billing
 
 conectar payments
       Create Session    alias=billing          url=${payments_url_base}          disable_warnings=true
+
+conectar settlement
+      Create Session    alias=settlement    url=${gf_settlement_url_base}     disable_warnings=true
