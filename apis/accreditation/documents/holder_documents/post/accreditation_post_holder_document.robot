@@ -13,8 +13,7 @@ criar holder document
     ## Sendo assim para que essa keyword funcione, momentaneamente, o comando "robot" deve ser executado no path "\tests\accreditation\holders"
     ## Esse problema será ajustado futuramente
     #${data}            Get Binary File          ./../../images/accreditation/image.jpg
-    #${data}            Get Binary File          ${CURDIR}/../../../../../images/accreditation/image.jpg
-    ${data}            Get Binary File          ${EXECDIR}/../../images/accreditation/image.jpg
+    ${data}            Get Binary File          ${EXECDIR}./../../images/accreditation/image.jpg
     ${response}        Post Request             accreditation            /marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}
     ...                                                                  data=${data}
     ...                                                                  headers=${header}
@@ -25,3 +24,5 @@ criar holder document
 
     ${document_external_key}       Set Variable If    ${response.status_code}==201    ${response.json()["id"]}
     Set Global Variable            ${document_external_key}
+
+    Log To Console    ${EXECDIR}./../../images/accreditation/image.jpg
