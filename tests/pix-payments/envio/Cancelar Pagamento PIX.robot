@@ -1,17 +1,18 @@
 *** Settings ***
-Documentation    Funcionalidade: Criar Chave de Endereçamento
+Documentation    Funcionalidade: Cancelar Chave de Endereçamento
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo criar uma pagamento PIX
+...              Desejo confirmar o pagamento de um envio de PIX
 Resource         ../../../hooks/pix-dict/pix_dict_create_active_key_pix.robot
 Resource         ../../../apis/accreditation/holders/post/business/accreditation_post_holder_business.robot
 Resource         ../../../apis/accreditation/holders/post/individual/accreditation_post_holder_individual.robot
 Resource         ../../../apis/pix-payments/post/pix_payments_create_pix_payment.robot
-Resource         ../../../apis/pix-payments/post/pix_payments_confirm_pix_payment.robot
+Resource         ../../../apis/pix-payments/post/pix_payments_cancel_pix_payment.robot
 Resource         ../../../apis/pix-payments/get/pix_payments_get_pix_payment.robot
 Resource         ../../../asserts/pix-payments/envio/asserts.robot
+Resource         ../../../asserts/accounts/asserts.robot
 
 *** Variables ***
-${amount}                                 100
+${amount}                                 290
 ${debtor_account_psp_code}                19468242
 ${debtor_account_psp_name}                Zoop Tecnologia e Meios de Pagamento S.A.
 ${debtor_account_type}                    cacc
@@ -24,9 +25,12 @@ ${creditor_psp}                           17192451
 ${pix_description}                        Envio de PIX
 
 *** Test Cases ***
-Cenário: Criar pagamento PIX de para holder business utilizando dados completos da conta de destino
-  [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Individual
-  criar chave pix ativa    holder_type=business    pix_type=email
+Cenário: Cancelar pagamento PIX
+  [Tags]  smoke_test
+  [Documentation]  Cancelamento de pagament PIX, efetuado antes da confirmação do pagamento
+
+  criar chave pix ativa    holder_type=individual
+  ...                      pix_type=email
 
   criar pagamento pix com dados completos    amount=${amount}
   ...                                        creditor_account_number=${creditor_account_number}
@@ -60,24 +64,12 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                      creditor_account_type=${creditor_account_type}
   ...                      refunded_amount=0
 
-Cenário: Criar pagamento PIX de para holder individual utilizando dados completos da conta de destino
-  [Tags]  smoke_test
-  [Documentation]  Envio de PIX com sucesso para uma conta Iti, a partir de um Holder Business
-
-  criar chave pix ativa    holder_type=individual
-  ...                      pix_type=email
-
-  criar pagamento pix com dados completos    amount=${amount}
-  ...                                        creditor_account_number=${creditor_account_number}
-  ...                                        creditor_routing_number=${creditor_routing_number}
-  ...                                        creditor_account_type=${creditor_account_type}
-  ...                                        creditor_name=${creditor_name}
-  ...                                        creditor_national_registration=${creditor_national_registration}
-  ...                                        creditor_psp=${creditor_psp}
-  ...                                        pix_description=${pix_description}
+  cancelar pagamento pix    holder_external_key=${holder_external_key}
+  ...                       account_external_key=${account_external_key}
+  ...                       payment_external_key=${payment_external_key}
 
   validar pagamento pix    marketplace_external_key=${marketplace_external_key}
-  ...                      status_pix_payments=pending
+  ...                      status_pix_payments=canceled
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}
   ...                      debitor_national_registration=${national_registration}

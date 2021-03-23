@@ -1,5 +1,6 @@
 *** Settings ***
 Library   DateTime
+Library   Collections
 
 *** Keywords ***
 validar pagamento pix
@@ -14,8 +15,15 @@ validar pagamento pix
 
   Should Be Equal                 ${response.json()["marketplace_id"]}                                  ${marketplace_external_key}
   Should Be Equal                 ${response.json()["status"]}                                          ${status_pix_payments}
-  Should Not Be Empty             ${response.json()["end_to_end_id"]}
-  Should Not Be Empty             ${response.json()["message_id"]}
+  Should Contain                   ${response.json()["end_to_end_id"]}                                   E19468242
+
+  Run Keyword If    '${response.json()["status"]}' == 'peding'   Should Contain    ${response.json()["message_id"]}    M19468242
+  ...	ELSE IF	'${response.json()["status"]}' == 'executed'       Should Contain    ${response.json()["message_id"]}    M19468242
+  ...	ELSE IF	'${response.json()["status"]}' == 'succeeded'      Should Contain    ${response.json()["message_id"]}    M19468242
+  ...	ELSE IF	'${response.json()["status"]}' == 'canceled'       Should Not Contain Any    ${response.json()}          message_id
+
+  #Should Not Be Empty    ${response.json()["message_id"]}
+
   Should Be Equal As Integers     ${response.json()["amount"]}                                          ${amount}
   #Should Contain                  ${response.json()["created_at"]}                                      ${date}
   Should Be Equal                 ${response.json()["description"]}                                     ${pix_description}
