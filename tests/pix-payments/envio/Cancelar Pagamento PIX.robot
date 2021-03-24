@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation    Funcionalidade: Cancelar Chave de Endereçamento
+Documentation    Funcionalidade: Cancelar Envio de Pagamento PIX
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo confirmar o pagamento de um envio de PIX
+...              Desejo cancelar o pagamento de um envio de PIX
 Resource         ../../../hooks/pix-dict/pix_dict_create_active_key_pix.robot
 Resource         ../../../apis/accreditation/holders/post/business/accreditation_post_holder_business.robot
 Resource         ../../../apis/accreditation/holders/post/individual/accreditation_post_holder_individual.robot
