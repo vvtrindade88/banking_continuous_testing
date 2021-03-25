@@ -49,7 +49,7 @@ conectar billing
       Create Session    alias=billing          url=${billing_url_base}           disable_warnings=true
 
 conectar payments
-      Create Session    alias=billing          url=${payments_url_base}          disable_warnings=true
+      Create Session    alias=payments          url=${payments_url_base}         disable_warnings=true
 
 conectar settlement
-      Create Session    alias=settlement    url=${gf_settlement_url_base}     disable_warnings=true
+      Create Session    alias=settlement    url=${gf_settlement_url_base}        disable_warnings=true

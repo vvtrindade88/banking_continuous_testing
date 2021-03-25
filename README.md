@@ -35,6 +35,16 @@ Com a instalação feita, resta instalar as libraries basicas para a criação e
 
 O **RobotFramework** já possui algumas libraries padrões, porém algumas ainda precisam ser instaladas de fora para auxilizar na agilidade da criação dos scripts.
 
+
+* [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top) :: Biblioteca padrão do Robot Framework que fornece um conjunto de palavras-chave genéricas frequentemente necessárias.
+
+    **Instalação**
+    > Library Standard :: não precisa de instalação
+
+    **Utilização**
+    > Não precisa ser instanciada
+
+
 * [Faker](https://guykisel.github.io/robotframework-faker/) :: Library geradora de dados fakes
 
     **Instalação**

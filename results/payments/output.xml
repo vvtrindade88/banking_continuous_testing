@@ -1,0 +1,3150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20210325 18:24:23.990" rpa="false">
+<suite id="s1" name="Payments" source="C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\tests\payments">
+<suite id="s1-s1" name="Envio" source="C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\tests\payments\envio">
+<suite id="s1-s1-s1" name="Criar Envio de TED" source="C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\tests\payments\envio\Criar Envio de TED.robot">
+<test id="s1-s1-s1-t1" name="Cenário: Realizar Envio de ted">
+<kw name="criar holder individual ativo" library="accreditation_create_holder_active">
+<kw name="conectar accreditation" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accreditation</arg>
+<arg>url=${accreditation_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.626" level="INFO">Creating Session using : alias=accreditation, url=https://banking-accreditation-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:24.626" endtime="20210325 18:24:24.626"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:24.625" endtime="20210325 18:24:24.626"></status>
+</kw>
+<kw name="Cpf" library="FakerLibrary">
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.627" level="INFO">${national_registration} = 706.529.431-52</msg>
+<status status="PASS" starttime="20210325 18:24:24.626" endtime="20210325 18:24:24.627"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.627" level="INFO">${national_registration} = 706529431-52</msg>
+<status status="PASS" starttime="20210325 18:24:24.627" endtime="20210325 18:24:24.627"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+<arg>-</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.627" level="INFO">${national_registration} = 70652943152</msg>
+<status status="PASS" starttime="20210325 18:24:24.627" endtime="20210325 18:24:24.627"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.628" level="INFO">${national_registration} = 70652943152</msg>
+<status status="PASS" starttime="20210325 18:24:24.628" endtime="20210325 18:24:24.628"></status>
+</kw>
+<kw name="Rg" library="FakerLibrary">
+<doc>Brazilian RG, return plain numbers.
+Check:  https://www.ngmatematica.com/2014/02/como-determinar-o-digito-verificador-do.html</doc>
+<assign>
+<var>${identity_card}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.628" level="INFO">${identity_card} = 621834750</msg>
+<status status="PASS" starttime="20210325 18:24:24.628" endtime="20210325 18:24:24.628"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${identity_card}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.629" level="INFO">${identity_card} = 621834750</msg>
+<status status="PASS" starttime="20210325 18:24:24.628" endtime="20210325 18:24:24.629"></status>
+</kw>
+<kw name="criar holder individual" library="accreditation_post_holder_individual">
+<arguments>
+<arg>holder_type=individual</arg>
+<arg>holder_name=${holder_name}</arg>
+<arg>email=${email}</arg>
+<arg>national_registration=${national_registration}</arg>
+<arg>revenue=${revenue}</arg>
+<arg>birthday=${birthday}</arg>
+<arg>mothers_name=${mothers_name}</arg>
+<arg>identity_card=${identity_card}</arg>
+<arg>pep=false</arg>
+<arg>cbo=${cbo}</arg>
+</arguments>
+<kw name="conectar accreditation" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accreditation</arg>
+<arg>url=${accreditation_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.631" level="INFO">Creating Session using : alias=accreditation, url=https://banking-accreditation-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:24.630" endtime="20210325 18:24:24.631"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:24.629" endtime="20210325 18:24:24.631"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_type}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.631" level="INFO">${holder_type} = individual</msg>
+<status status="PASS" starttime="20210325 18:24:24.631" endtime="20210325 18:24:24.631"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_name}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:24.631" level="INFO">${holder_name} = Holder de teste</msg>
+<status status="PASS" starttime="20210325 18:24:24.631" endtime="20210325 18:24:24.631"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.632" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:24.632" endtime="20210325 18:24:24.632"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"type": "${holder_type}",</arg>
+<arg>"name": "${holder_name}",</arg>
+<arg>"email": "${email}",</arg>
+<arg>"national_registration": "${national_registration}",</arg>
+<arg>"revenue": ${revenue},</arg>
+<arg>"birthday": "${birthday}",</arg>
+<arg>"mothers_name": "${mothers_name}",</arg>
+<arg>"identity_card": "${identity_card}",</arg>
+<arg>"pep": false,</arg>
+<arg>"cbo": ${cbo}</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.633" level="INFO">${body} = { "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "70652943152", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder",...</msg>
+<status status="PASS" starttime="20210325 18:24:24.632" endtime="20210325 18:24:24.633"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:24.633" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "70652943152", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder", "identity_card": "621834750", "pep": false, "cbo": 821450 } 
+json=None</msg>
+<msg timestamp="20210325 18:24:25.389" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:24.633" endtime="20210325 18:24:25.389"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.390" level="INFO">{'id': 'ea6d44a7b4984b34aad2baf0e9a4e6c4', 'name': 'Holder de teste', 'revenue': 5500.0, 'email': 'teste@teste.com.br', 'status': 'waiting_info_and_documents', 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'marketplace_name': 'Marketplace de Teste', 'created_at': '2021-03-25T18:24:25.407829', 'updated_at': '2021-03-25T18:24:25.407831', 'type': 'individual', 'national_registration': '70652943152', 'birthday': '1988-04-23', 'mothers_name': 'Mãe do Holder', 'identity_card': '621834750', 'pep': False, 'cbo': '821450', '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}, 'phones': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/phones', 'type': 'GET'}, 'addresses': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/addresses', 'type': 'GET'}, 'documents': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:25.389" endtime="20210325 18:24:25.390"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.390" level="INFO">3a1c126978370936</msg>
+<status status="PASS" starttime="20210325 18:24:25.390" endtime="20210325 18:24:25.391"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.391" level="INFO">{ "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "70652943152", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder", "identity_card": "621834750", "pep": false, "cbo": 821450 }</msg>
+<status status="PASS" starttime="20210325 18:24:25.391" endtime="20210325 18:24:25.391"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.392" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.391" endtime="20210325 18:24:25.392"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${holder_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.392" level="INFO">${holder_external_key} = ea6d44a7b4984b34aad2baf0e9a4e6c4</msg>
+<status status="PASS" starttime="20210325 18:24:25.392" endtime="20210325 18:24:25.392"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.393" level="INFO">${holder_external_key} = ea6d44a7b4984b34aad2baf0e9a4e6c4</msg>
+<status status="PASS" starttime="20210325 18:24:25.393" endtime="20210325 18:24:25.393"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:24.629" endtime="20210325 18:24:25.393"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_name}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.393" level="INFO">${holder_name} = Holder de teste</msg>
+<status status="PASS" starttime="20210325 18:24:25.393" endtime="20210325 18:24:25.394"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.394" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.394" endtime="20210325 18:24:25.394"></status>
+</kw>
+<kw name="criar holder phone" library="accreditation_post_holder_phone">
+<arguments>
+<arg>21</arg>
+<arg>51</arg>
+<arg>996221236</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.395" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:25.395" endtime="20210325 18:24:25.395"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"area_code": "${phone_area_code}",</arg>
+<arg>"country_code": "${phone_country_code}",</arg>
+<arg>"number": "${phone_number}"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.395" level="INFO">${body} = { "area_code": "21", "country_code": "51", "number": "996221236" }</msg>
+<status status="PASS" starttime="20210325 18:24:25.395" endtime="20210325 18:24:25.395"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/phones</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.396" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/phones, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "area_code": "21", "country_code": "51", "number": "996221236" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:25.654" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.396" endtime="20210325 18:24:25.654"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.658" level="INFO">{'id': '04d5f5e0366846dea23a9c4465aed712', 'area_code': '21', 'country_code': '51', 'number': '996221236', 'main': True, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/phones/04d5f5e0366846dea23a9c4465aed712', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:25.655" endtime="20210325 18:24:25.658"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.660" level="INFO">6d79b23f8e2d9887</msg>
+<status status="PASS" starttime="20210325 18:24:25.659" endtime="20210325 18:24:25.660"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.662" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.661" endtime="20210325 18:24:25.662"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${phone_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.664" level="INFO">${phone_external_key} = 04d5f5e0366846dea23a9c4465aed712</msg>
+<status status="PASS" starttime="20210325 18:24:25.663" endtime="20210325 18:24:25.664"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${phone_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.666" level="INFO">${phone_external_key} = 04d5f5e0366846dea23a9c4465aed712</msg>
+<status status="PASS" starttime="20210325 18:24:25.665" endtime="20210325 18:24:25.666"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:25.394" endtime="20210325 18:24:25.666"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.668" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.667" endtime="20210325 18:24:25.668"></status>
+</kw>
+<kw name="criar holder address" library="accreditation_post_holder_address">
+<arguments>
+<arg>Rio de Janeiro</arg>
+<arg>Rio de Janeiro</arg>
+<arg>Brasil</arg>
+<arg>Bairro de Testes</arg>
+<arg>Rua de Testes</arg>
+<arg>90</arg>
+<arg>apto 200</arg>
+<arg>21550987</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.669" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:25.669" endtime="20210325 18:24:25.669"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"city": "${city}",</arg>
+<arg>"state": "${state}",</arg>
+<arg>"country": "${country}",</arg>
+<arg>"neighborhood": "${neighborhood}",</arg>
+<arg>"street": "${street}",</arg>
+<arg>"number": "${number}",</arg>
+<arg>"complement": "${complement}",</arg>
+<arg>"postal_code": "${postal_code}"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.670" level="INFO">${body} = { "city": "Rio de Janeiro", "state": "Rio de Janeiro", "country": "Brasil", "neighborhood": "Bairro de Testes", "street": "Rua de Testes", "number": "90", "complement": "apto 200", "postal_code": "215...</msg>
+<status status="PASS" starttime="20210325 18:24:25.670" endtime="20210325 18:24:25.670"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/addresses</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.671" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/addresses, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "city": "Rio de Janeiro", "state": "Rio de Janeiro", "country": "Brasil", "neighborhood": "Bairro de Testes", "street": "Rua de Testes", "number": "90", "complement": "apto 200", "postal_code": "21550987" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:25.936" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.670" endtime="20210325 18:24:25.937"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.939" level="INFO">{'id': 'd94101dc7f884702825d0d85167ee853', 'street': 'Rua de Testes', 'number': '90', 'city': 'Rio de Janeiro', 'complement': 'apto 200', 'state': 'Rio de Janeiro', 'neighborhood': 'Bairro de Testes', 'postal_code': '21550987', 'country': 'Brasil', 'main': True, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/addresses/d94101dc7f884702825d0d85167ee853', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:25.938" endtime="20210325 18:24:25.939"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.941" level="INFO">390776abef20c901</msg>
+<status status="PASS" starttime="20210325 18:24:25.940" endtime="20210325 18:24:25.941"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.943" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.942" endtime="20210325 18:24:25.944"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${address_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.945" level="INFO">${address_external_key} = d94101dc7f884702825d0d85167ee853</msg>
+<status status="PASS" starttime="20210325 18:24:25.944" endtime="20210325 18:24:25.946"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${address_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.947" level="INFO">${address_external_key} = d94101dc7f884702825d0d85167ee853</msg>
+<status status="PASS" starttime="20210325 18:24:25.946" endtime="20210325 18:24:25.947"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:25.668" endtime="20210325 18:24:25.947"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:25.949" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.948" endtime="20210325 18:24:25.949"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>SELFIE</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.951" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:25.951" endtime="20210325 18:24:25.951"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.951" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:25.952" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:25.951" endtime="20210325 18:24:25.953"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:25.953" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents?type=SELFIE, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:26.290" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:25.953" endtime="20210325 18:24:26.291"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.292" level="INFO">{'id': 'c8544c99d3c448efaf53df9bbaa29149', 'document_type': 'selfie', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c8544c99d3c448efaf53df9bbaa29149', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c8544c99d3c448efaf53df9bbaa29149/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:26.291" endtime="20210325 18:24:26.292"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.293" level="INFO">d83b565a823a4dbd</msg>
+<status status="PASS" starttime="20210325 18:24:26.293" endtime="20210325 18:24:26.294"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.295" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.294" endtime="20210325 18:24:26.296"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.297" level="INFO">${document_external_key} = c8544c99d3c448efaf53df9bbaa29149</msg>
+<status status="PASS" starttime="20210325 18:24:26.296" endtime="20210325 18:24:26.297"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.299" level="INFO">${document_external_key} = c8544c99d3c448efaf53df9bbaa29149</msg>
+<status status="PASS" starttime="20210325 18:24:26.298" endtime="20210325 18:24:26.299"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:25.950" endtime="20210325 18:24:26.299"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.300" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.300" endtime="20210325 18:24:26.301"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>RG_FRENTE</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.303" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:26.302" endtime="20210325 18:24:26.303"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.304" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:26.305" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:26.303" endtime="20210325 18:24:26.305"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.306" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents?type=RG_FRENTE, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:26.600" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.306" endtime="20210325 18:24:26.600"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.600" level="INFO">{'id': 'c3e696608ca54fa0b51bf7d611dc5451', 'document_type': 'rg_frente', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c3e696608ca54fa0b51bf7d611dc5451', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c3e696608ca54fa0b51bf7d611dc5451/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:26.600" endtime="20210325 18:24:26.600"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.600" level="INFO">3a981e966e0d1bfe</msg>
+<status status="PASS" starttime="20210325 18:24:26.600" endtime="20210325 18:24:26.601"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.601" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.601" endtime="20210325 18:24:26.601"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.602" level="INFO">${document_external_key} = c3e696608ca54fa0b51bf7d611dc5451</msg>
+<status status="PASS" starttime="20210325 18:24:26.601" endtime="20210325 18:24:26.602"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.603" level="INFO">${document_external_key} = c3e696608ca54fa0b51bf7d611dc5451</msg>
+<status status="PASS" starttime="20210325 18:24:26.602" endtime="20210325 18:24:26.603"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:26.301" endtime="20210325 18:24:26.603"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.603" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.603" endtime="20210325 18:24:26.603"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>RG_VERSO</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.605" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:26.605" endtime="20210325 18:24:26.605"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.605" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:26.607" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:26.605" endtime="20210325 18:24:26.607"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.607" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents?type=RG_VERSO, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:26.913" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.607" endtime="20210325 18:24:26.914"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.914" level="INFO">{'id': 'c884958b041e469faf46e1a232089f3e', 'document_type': 'rg_verso', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c884958b041e469faf46e1a232089f3e', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/documents/c884958b041e469faf46e1a232089f3e/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:26.914" endtime="20210325 18:24:26.914"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.915" level="INFO">92d9865f4a054f3b</msg>
+<status status="PASS" starttime="20210325 18:24:26.914" endtime="20210325 18:24:26.915"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.915" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.915" endtime="20210325 18:24:26.915"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.916" level="INFO">${document_external_key} = c884958b041e469faf46e1a232089f3e</msg>
+<status status="PASS" starttime="20210325 18:24:26.916" endtime="20210325 18:24:26.916"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.916" level="INFO">${document_external_key} = c884958b041e469faf46e1a232089f3e</msg>
+<status status="PASS" starttime="20210325 18:24:26.916" endtime="20210325 18:24:26.917"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:26.604" endtime="20210325 18:24:26.917"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:26.917" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.917" endtime="20210325 18:24:26.917"></status>
+</kw>
+<kw name="solicitar aprovação do holder" library="accreditation_request_approval">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.918" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:26.918" endtime="20210325 18:24:26.918"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/approval</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:26.918" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/approval, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:27.235" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:26.918" endtime="20210325 18:24:27.235"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.237" level="INFO">{'message': 'Approval request accepted successfully. Processing analysis'}</msg>
+<status status="PASS" starttime="20210325 18:24:27.236" endtime="20210325 18:24:27.238"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.240" level="INFO">cadd987658d7065e</msg>
+<status status="PASS" starttime="20210325 18:24:27.239" endtime="20210325 18:24:27.240"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.243" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.241" endtime="20210325 18:24:27.244"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:26.917" endtime="20210325 18:24:27.244"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.246" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.245" endtime="20210325 18:24:27.246"></status>
+</kw>
+<kw name="recebendo notificação de aprovação" library="accreditation_risk_notification">
+<kw name="Uuid 4" library="FakerLibrary">
+<doc>Generates a random UUID4 string.
+:param cast_to: Specify what type the UUID should be cast to. Default is `str`
+:type cast_to: callable</doc>
+<assign>
+<var>${assessment_id}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.249" level="INFO">${assessment_id} = 0e1ee287-489e-4851-b247-779a4ffc8f48</msg>
+<status status="PASS" starttime="20210325 18:24:27.249" endtime="20210325 18:24:27.249"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>year</arg>
+</arguments>
+<assign>
+<var>${year}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.250" level="INFO">${year} = 2021</msg>
+<status status="PASS" starttime="20210325 18:24:27.250" endtime="20210325 18:24:27.250"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>month</arg>
+</arguments>
+<assign>
+<var>${month}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.252" level="INFO">${month} = 03</msg>
+<status status="PASS" starttime="20210325 18:24:27.251" endtime="20210325 18:24:27.252"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>day</arg>
+</arguments>
+<assign>
+<var>${day}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.254" level="INFO">${day} = 25</msg>
+<status status="PASS" starttime="20210325 18:24:27.252" endtime="20210325 18:24:27.254"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.256" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:27.254" endtime="20210325 18:24:27.257"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"type": "risk.assessment.result",</arg>
+<arg>"resource": "business.holder",</arg>
+<arg>"created_at": "${year}-${month}-${day} 15:28:56.747Z",</arg>
+<arg>"marketplace_id": "${marketplace_external_key}",</arg>
+<arg>"object": {</arg>
+<arg>"result": "APPROVED",</arg>
+<arg>"holder_id": "${holder_external_key}",</arg>
+<arg>"applicant_id": "${application_external_key}",</arg>
+<arg>"assessment_id": "${assessment_id}"</arg>
+<arg>}</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.257" level="INFO">${body} = { "type": "risk.assessment.result", "resource": "business.holder", "created_at": "2021-03-25 15:28:56.747Z", "marketplace_id": "f71a8951368a4cc085cf7875ff44e61c", "object": { "result": "APPROVED", "ho...</msg>
+<status status="PASS" starttime="20210325 18:24:27.257" endtime="20210325 18:24:27.257"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/admin/internal_operation/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/registration/approval</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.259" level="INFO">POST Request using : uri=/admin/internal_operation/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/registration/approval, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "type": "risk.assessment.result", "resource": "business.holder", "created_at": "2021-03-25 15:28:56.747Z", "marketplace_id": "f71a8951368a4cc085cf7875ff44e61c", "object": { "result": "APPROVED", "holder_id": "ea6d44a7b4984b34aad2baf0e9a4e6c4", "applicant_id": "bcc25a6751c14b52af1340d40dba78c5", "assessment_id": "0e1ee287-489e-4851-b247-779a4ffc8f48" } } 
+json=None</msg>
+<msg timestamp="20210325 18:24:27.474" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.257" endtime="20210325 18:24:27.474"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.476" level="INFO">{'message': 'Holder approved successfully'}</msg>
+<status status="PASS" starttime="20210325 18:24:27.475" endtime="20210325 18:24:27.476"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.478" level="INFO">d18559cb5627b9de</msg>
+<status status="PASS" starttime="20210325 18:24:27.477" endtime="20210325 18:24:27.478"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.479" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.479" endtime="20210325 18:24:27.480"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.481" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.480" endtime="20210325 18:24:27.481"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:27.247" endtime="20210325 18:24:27.481"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.482" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.482" endtime="20210325 18:24:27.483"></status>
+</kw>
+<kw name="buscar account por holder" library="accounts_get_accounts_by_holder">
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:27.486" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:27.485" endtime="20210325 18:24:27.486"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:27.484" endtime="20210325 18:24:27.487"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accounts</arg>
+<arg>/marketplaces/${marketplace_external_key}/holders/${holder_external_key}/accounts</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:27.488" level="INFO">GET Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/accounts, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:28.172" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:27.487" endtime="20210325 18:24:28.172"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.175" level="INFO">{'items': [{'id': 'cf485511953c482fa595103198c61a27', 'holder': 'ea6d44a7b4984b34aad2baf0e9a4e6c4', 'balance': '0.00', 'currency': 'BRL', 'routing_number': '001', 'number': '9096487718', 'status': 'active', 'metadata': {}, 'created_at': '2021-03-25T21:24:27.517397', 'updated_at': '2021-03-25T21:24:27.517397', 'primary': True, 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'uri': '/v2/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/cf485511953c482fa595103198c61a27', 'resource': 'payment_account'}], 'has_more': False, 'limit': 100, 'total_pages': 1, 'page': 1, 'offset': 0, 'total': '1', 'query_count': '1'}</msg>
+<status status="PASS" starttime="20210325 18:24:28.173" endtime="20210325 18:24:28.176"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.177" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:28.177" endtime="20210325 18:24:28.178"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["id"]}</arg>
+</arguments>
+<assign>
+<var>${account_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.179" level="INFO">${account_external_key} = cf485511953c482fa595103198c61a27</msg>
+<status status="PASS" starttime="20210325 18:24:28.178" endtime="20210325 18:24:28.180"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.181" level="INFO">${account_external_key} = cf485511953c482fa595103198c61a27</msg>
+<status status="PASS" starttime="20210325 18:24:28.181" endtime="20210325 18:24:28.181"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["number"]}</arg>
+</arguments>
+<assign>
+<var>${account_number}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.183" level="INFO">${account_number} = 9096487718</msg>
+<status status="PASS" starttime="20210325 18:24:28.182" endtime="20210325 18:24:28.183"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_number}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.184" level="INFO">${account_number} = 9096487718</msg>
+<status status="PASS" starttime="20210325 18:24:28.183" endtime="20210325 18:24:28.185"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["routing_number"]}</arg>
+</arguments>
+<assign>
+<var>${account_routing_number}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.186" level="INFO">${account_routing_number} = 001</msg>
+<status status="PASS" starttime="20210325 18:24:28.185" endtime="20210325 18:24:28.186"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_routing_number}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.187" level="INFO">${account_routing_number} = 001</msg>
+<status status="PASS" starttime="20210325 18:24:28.187" endtime="20210325 18:24:28.187"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:27.483" endtime="20210325 18:24:28.187"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.188" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:28.188" endtime="20210325 18:24:28.188"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:24.625" endtime="20210325 18:24:28.189"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${holder_external_key}</arg>
+</arguments>
+<assign>
+<var>${holder_send_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.191" level="INFO">${holder_send_ted} = ea6d44a7b4984b34aad2baf0e9a4e6c4</msg>
+<status status="PASS" starttime="20210325 18:24:28.191" endtime="20210325 18:24:28.191"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_external_key}</arg>
+</arguments>
+<assign>
+<var>${account_send_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.192" level="INFO">${account_send_ted} = cf485511953c482fa595103198c61a27</msg>
+<status status="PASS" starttime="20210325 18:24:28.192" endtime="20210325 18:24:28.192"></status>
+</kw>
+<kw name="gerar saldo para account" library="account_generate_balance">
+<arguments>
+<arg>${account_send_ted}</arg>
+</arguments>
+<kw name="Uuid 4" library="FakerLibrary">
+<doc>Generates a random UUID4 string.
+:param cast_to: Specify what type the UUID should be cast to. Default is `str`
+:type cast_to: callable</doc>
+<assign>
+<var>${uuid}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.193" level="INFO">${uuid} = 194101d0-292a-43a3-8279-00cfe41496d2</msg>
+<status status="PASS" starttime="20210325 18:24:28.193" endtime="20210325 18:24:28.193"></status>
+</kw>
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.194" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:28.193" endtime="20210325 18:24:28.194"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:28.193" endtime="20210325 18:24:28.194"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.194" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:28.194" endtime="20210325 18:24:28.194"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"operations": [</arg>
+<arg>{</arg>
+<arg>"amount": 9000000000000,</arg>
+<arg>"authorization_code": "${uuid}",</arg>
+<arg>"transaction_id": "${uuid}",</arg>
+<arg>"id": "${uuid}",</arg>
+<arg>"id_checking_account": "${account_external_key}",</arg>
+<arg>"transfer_date": "2020-02-20T20:58:06.510Z",</arg>
+<arg>"fee": 0,</arg>
+<arg>"description": "Teste",</arg>
+<arg>"object_type": "transfer",</arg>
+<arg>"object_id": "${uuid}",</arg>
+<arg>"dflag": "ACTIVE",</arg>
+<arg>"created_at": "2019-10-14T20:58:06.510Z",</arg>
+<arg>"type": "Transfer"</arg>
+<arg>}</arg>
+<arg>],</arg>
+<arg>"reference_id": "Criando saldo na account"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.195" level="INFO">${body} = { "operations": [ { "amount": 9000000000000, "authorization_code": "194101d0-292a-43a3-8279-00cfe41496d2", "transaction_id": "194101d0-292a-43a3-8279-00cfe41496d2", "id": "194101d0-292a-43a3-8279-00cf...</msg>
+<status status="PASS" starttime="20210325 18:24:28.195" endtime="20210325 18:24:28.195"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accounts</arg>
+<arg>/admin/internal_operation/authorization/${uuid}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.196" level="INFO">POST Request using : uri=/admin/internal_operation/authorization/194101d0-292a-43a3-8279-00cfe41496d2, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "operations": [ { "amount": 9000000000000, "authorization_code": "194101d0-292a-43a3-8279-00cfe41496d2", "transaction_id": "194101d0-292a-43a3-8279-00cfe41496d2", "id": "194101d0-292a-43a3-8279-00cfe41496d2", "id_checking_account": "cf485511953c482fa595103198c61a27", "transfer_date": "2020-02-20T20:58:06.510Z", "fee": 0, "description": "Teste", "object_type": "transfer", "object_id": "194101d0-292a-43a3-8279-00cfe41496d2", "dflag": "ACTIVE", "created_at": "2019-10-14T20:58:06.510Z", "type": "Transfer" } ], "reference_id": "Criando saldo na account" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:28.833" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:28.195" endtime="20210325 18:24:28.833"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${response.status_code}' == 200</arg>
+<arg>Log</arg>
+<arg>${response.json()}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:28.835" endtime="20210325 18:24:28.836"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${response.status_code}' == 200</arg>
+<arg>Log</arg>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:28.836" endtime="20210325 18:24:28.837"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${response.status_code}' == 200</arg>
+<arg>Log</arg>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:28.838" endtime="20210325 18:24:28.839"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:28.192" endtime="20210325 18:24:28.839"></status>
+</kw>
+<kw name="buscar account balance" library="account_get_balance">
+<arguments>
+<arg>marketplace_external_key=${marketplace_external_key}</arg>
+<arg>account_external_key=${account_send_ted}</arg>
+</arguments>
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:28.841" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:28.841" endtime="20210325 18:24:28.841"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:28.841" endtime="20210325 18:24:28.842"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accounts</arg>
+<arg>/marketplaces/${marketplace_external_key}/accounts/${account_external_key}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:28.842" level="INFO">GET Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/cf485511953c482fa595103198c61a27, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:29.473" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:28.842" endtime="20210325 18:24:29.473"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.475" level="INFO">{'id': 'cf485511953c482fa595103198c61a27', 'holder': 'ea6d44a7b4984b34aad2baf0e9a4e6c4', 'balance': '9000000.00', 'currency': 'BRL', 'routing_number': '001', 'number': '9096487718', 'status': 'active', 'metadata': {}, 'created_at': '2021-03-25T21:24:27.517397', 'updated_at': '2021-03-25T21:24:28.917248', 'primary': True, 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'uri': '/v2/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/cf485511953c482fa595103198c61a27', 'resource': 'payment_account'}</msg>
+<status status="PASS" starttime="20210325 18:24:29.474" endtime="20210325 18:24:29.475"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.477" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:29.476" endtime="20210325 18:24:29.478"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["balance"]}</arg>
+</arguments>
+<assign>
+<var>${account_balance}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.480" level="INFO">${account_balance} = 9000000.00</msg>
+<status status="PASS" starttime="20210325 18:24:29.478" endtime="20210325 18:24:29.481"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_balance}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.483" level="INFO">${account_balance} = 9000000.00</msg>
+<status status="PASS" starttime="20210325 18:24:29.482" endtime="20210325 18:24:29.483"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:28.840" endtime="20210325 18:24:29.483"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_balance}</arg>
+</arguments>
+<assign>
+<var>${account_sender_balance_inicial}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.486" level="INFO">${account_sender_balance_inicial} = 9000000.00</msg>
+<status status="PASS" starttime="20210325 18:24:29.485" endtime="20210325 18:24:29.486"></status>
+</kw>
+<kw name="criar holder individual ativo" library="accreditation_create_holder_active">
+<kw name="conectar accreditation" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accreditation</arg>
+<arg>url=${accreditation_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.489" level="INFO">Creating Session using : alias=accreditation, url=https://banking-accreditation-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:29.489" endtime="20210325 18:24:29.490"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:29.488" endtime="20210325 18:24:29.490"></status>
+</kw>
+<kw name="Cpf" library="FakerLibrary">
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.491" level="INFO">${national_registration} = 501.479.326-61</msg>
+<status status="PASS" starttime="20210325 18:24:29.490" endtime="20210325 18:24:29.491"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.492" level="INFO">${national_registration} = 501479326-61</msg>
+<status status="PASS" starttime="20210325 18:24:29.491" endtime="20210325 18:24:29.492"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+<arg>-</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${national_registration}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.493" level="INFO">${national_registration} = 50147932661</msg>
+<status status="PASS" starttime="20210325 18:24:29.492" endtime="20210325 18:24:29.493"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.494" level="INFO">${national_registration} = 50147932661</msg>
+<status status="PASS" starttime="20210325 18:24:29.494" endtime="20210325 18:24:29.494"></status>
+</kw>
+<kw name="Rg" library="FakerLibrary">
+<doc>Brazilian RG, return plain numbers.
+Check:  https://www.ngmatematica.com/2014/02/como-determinar-o-digito-verificador-do.html</doc>
+<assign>
+<var>${identity_card}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.495" level="INFO">${identity_card} = 263184754</msg>
+<status status="PASS" starttime="20210325 18:24:29.495" endtime="20210325 18:24:29.495"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${identity_card}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.496" level="INFO">${identity_card} = 263184754</msg>
+<status status="PASS" starttime="20210325 18:24:29.496" endtime="20210325 18:24:29.496"></status>
+</kw>
+<kw name="criar holder individual" library="accreditation_post_holder_individual">
+<arguments>
+<arg>holder_type=individual</arg>
+<arg>holder_name=${holder_name}</arg>
+<arg>email=${email}</arg>
+<arg>national_registration=${national_registration}</arg>
+<arg>revenue=${revenue}</arg>
+<arg>birthday=${birthday}</arg>
+<arg>mothers_name=${mothers_name}</arg>
+<arg>identity_card=${identity_card}</arg>
+<arg>pep=false</arg>
+<arg>cbo=${cbo}</arg>
+</arguments>
+<kw name="conectar accreditation" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accreditation</arg>
+<arg>url=${accreditation_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.497" level="INFO">Creating Session using : alias=accreditation, url=https://banking-accreditation-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:29.497" endtime="20210325 18:24:29.497"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:29.497" endtime="20210325 18:24:29.497"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_type}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.498" level="INFO">${holder_type} = individual</msg>
+<status status="PASS" starttime="20210325 18:24:29.498" endtime="20210325 18:24:29.498"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_name}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:29.498" level="INFO">${holder_name} = Holder de teste</msg>
+<status status="PASS" starttime="20210325 18:24:29.498" endtime="20210325 18:24:29.498"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.499" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:29.498" endtime="20210325 18:24:29.499"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"type": "${holder_type}",</arg>
+<arg>"name": "${holder_name}",</arg>
+<arg>"email": "${email}",</arg>
+<arg>"national_registration": "${national_registration}",</arg>
+<arg>"revenue": ${revenue},</arg>
+<arg>"birthday": "${birthday}",</arg>
+<arg>"mothers_name": "${mothers_name}",</arg>
+<arg>"identity_card": "${identity_card}",</arg>
+<arg>"pep": false,</arg>
+<arg>"cbo": ${cbo}</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.499" level="INFO">${body} = { "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "50147932661", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder",...</msg>
+<status status="PASS" starttime="20210325 18:24:29.499" endtime="20210325 18:24:29.499"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:29.500" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "50147932661", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder", "identity_card": "263184754", "pep": false, "cbo": 821450 } 
+json=None</msg>
+<msg timestamp="20210325 18:24:30.162" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:29.499" endtime="20210325 18:24:30.162"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.163" level="INFO">{'id': '057a5d761a714fdd8bfdf72845faf29c', 'name': 'Holder de teste', 'revenue': 5500.0, 'email': 'teste@teste.com.br', 'status': 'waiting_info_and_documents', 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'marketplace_name': 'Marketplace de Teste', 'created_at': '2021-03-25T18:24:30.21923', 'updated_at': '2021-03-25T18:24:30.219232', 'type': 'individual', 'national_registration': '50147932661', 'birthday': '1988-04-23', 'mothers_name': 'Mãe do Holder', 'identity_card': '263184754', 'pep': False, 'cbo': '821450', '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}, 'phones': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/phones', 'type': 'GET'}, 'addresses': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/addresses', 'type': 'GET'}, 'documents': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:30.162" endtime="20210325 18:24:30.163"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.163" level="INFO">8363bb8954d45a84</msg>
+<status status="PASS" starttime="20210325 18:24:30.163" endtime="20210325 18:24:30.163"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.164" level="INFO">{ "type": "individual", "name": "Holder de teste", "email": "teste@teste.com.br", "national_registration": "50147932661", "revenue": 5500.00, "birthday": "1988-04-23", "mothers_name": "Mãe do Holder", "identity_card": "263184754", "pep": false, "cbo": 821450 }</msg>
+<status status="PASS" starttime="20210325 18:24:30.163" endtime="20210325 18:24:30.164"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.164" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.164" endtime="20210325 18:24:30.164"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${holder_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.165" level="INFO">${holder_external_key} = 057a5d761a714fdd8bfdf72845faf29c</msg>
+<status status="PASS" starttime="20210325 18:24:30.164" endtime="20210325 18:24:30.165"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.165" level="INFO">${holder_external_key} = 057a5d761a714fdd8bfdf72845faf29c</msg>
+<status status="PASS" starttime="20210325 18:24:30.165" endtime="20210325 18:24:30.165"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:29.496" endtime="20210325 18:24:30.166"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${holder_name}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.166" level="INFO">${holder_name} = Holder de teste</msg>
+<status status="PASS" starttime="20210325 18:24:30.166" endtime="20210325 18:24:30.166"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.166" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.166" endtime="20210325 18:24:30.167"></status>
+</kw>
+<kw name="criar holder phone" library="accreditation_post_holder_phone">
+<arguments>
+<arg>21</arg>
+<arg>51</arg>
+<arg>996221236</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.167" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:30.167" endtime="20210325 18:24:30.167"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"area_code": "${phone_area_code}",</arg>
+<arg>"country_code": "${phone_country_code}",</arg>
+<arg>"number": "${phone_number}"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.168" level="INFO">${body} = { "area_code": "21", "country_code": "51", "number": "996221236" }</msg>
+<status status="PASS" starttime="20210325 18:24:30.167" endtime="20210325 18:24:30.168"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/phones</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.168" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/phones, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "area_code": "21", "country_code": "51", "number": "996221236" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:30.403" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.168" endtime="20210325 18:24:30.403"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.404" level="INFO">{'id': '9157094098964b789ac796aa11465d4f', 'area_code': '21', 'country_code': '51', 'number': '996221236', 'main': True, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/phones/9157094098964b789ac796aa11465d4f', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:30.404" endtime="20210325 18:24:30.404"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.406" level="INFO">01062f6019cfc6fb</msg>
+<status status="PASS" starttime="20210325 18:24:30.405" endtime="20210325 18:24:30.406"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.407" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.407" endtime="20210325 18:24:30.407"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${phone_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.408" level="INFO">${phone_external_key} = 9157094098964b789ac796aa11465d4f</msg>
+<status status="PASS" starttime="20210325 18:24:30.408" endtime="20210325 18:24:30.409"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${phone_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.409" level="INFO">${phone_external_key} = 9157094098964b789ac796aa11465d4f</msg>
+<status status="PASS" starttime="20210325 18:24:30.409" endtime="20210325 18:24:30.409"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:30.167" endtime="20210325 18:24:30.409"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.410" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.409" endtime="20210325 18:24:30.410"></status>
+</kw>
+<kw name="criar holder address" library="accreditation_post_holder_address">
+<arguments>
+<arg>Rio de Janeiro</arg>
+<arg>Rio de Janeiro</arg>
+<arg>Brasil</arg>
+<arg>Bairro de Testes</arg>
+<arg>Rua de Testes</arg>
+<arg>90</arg>
+<arg>apto 200</arg>
+<arg>21550987</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.411" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:30.410" endtime="20210325 18:24:30.411"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"city": "${city}",</arg>
+<arg>"state": "${state}",</arg>
+<arg>"country": "${country}",</arg>
+<arg>"neighborhood": "${neighborhood}",</arg>
+<arg>"street": "${street}",</arg>
+<arg>"number": "${number}",</arg>
+<arg>"complement": "${complement}",</arg>
+<arg>"postal_code": "${postal_code}"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.411" level="INFO">${body} = { "city": "Rio de Janeiro", "state": "Rio de Janeiro", "country": "Brasil", "neighborhood": "Bairro de Testes", "street": "Rua de Testes", "number": "90", "complement": "apto 200", "postal_code": "215...</msg>
+<status status="PASS" starttime="20210325 18:24:30.411" endtime="20210325 18:24:30.411"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/addresses</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.412" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/addresses, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "city": "Rio de Janeiro", "state": "Rio de Janeiro", "country": "Brasil", "neighborhood": "Bairro de Testes", "street": "Rua de Testes", "number": "90", "complement": "apto 200", "postal_code": "21550987" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:30.683" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.412" endtime="20210325 18:24:30.683"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.683" level="INFO">{'id': '282b15664ce545778ec5e2e154bc5025', 'street': 'Rua de Testes', 'number': '90', 'city': 'Rio de Janeiro', 'complement': 'apto 200', 'state': 'Rio de Janeiro', 'neighborhood': 'Bairro de Testes', 'postal_code': '21550987', 'country': 'Brasil', 'main': True, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/addresses/282b15664ce545778ec5e2e154bc5025', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:30.683" endtime="20210325 18:24:30.684"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.684" level="INFO">885ee4af1cbfe7bc</msg>
+<status status="PASS" starttime="20210325 18:24:30.684" endtime="20210325 18:24:30.684"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.685" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.685" endtime="20210325 18:24:30.685"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${address_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.686" level="INFO">${address_external_key} = 282b15664ce545778ec5e2e154bc5025</msg>
+<status status="PASS" starttime="20210325 18:24:30.685" endtime="20210325 18:24:30.686"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${address_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.687" level="INFO">${address_external_key} = 282b15664ce545778ec5e2e154bc5025</msg>
+<status status="PASS" starttime="20210325 18:24:30.686" endtime="20210325 18:24:30.687"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:30.410" endtime="20210325 18:24:30.687"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.688" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.687" endtime="20210325 18:24:30.688"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>SELFIE</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.689" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:30.689" endtime="20210325 18:24:30.689"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.690" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:30.691" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:30.689" endtime="20210325 18:24:30.691"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.692" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents?type=SELFIE, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:30.966" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.691" endtime="20210325 18:24:30.966"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.967" level="INFO">{'id': '850835c8d7234fb586a2a45e771367d4', 'document_type': 'selfie', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/850835c8d7234fb586a2a45e771367d4', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/850835c8d7234fb586a2a45e771367d4/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:30.966" endtime="20210325 18:24:30.967"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.968" level="INFO">b2f1afcda95fe185</msg>
+<status status="PASS" starttime="20210325 18:24:30.968" endtime="20210325 18:24:30.968"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.969" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.968" endtime="20210325 18:24:30.969"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.969" level="INFO">${document_external_key} = 850835c8d7234fb586a2a45e771367d4</msg>
+<status status="PASS" starttime="20210325 18:24:30.969" endtime="20210325 18:24:30.969"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.970" level="INFO">${document_external_key} = 850835c8d7234fb586a2a45e771367d4</msg>
+<status status="PASS" starttime="20210325 18:24:30.970" endtime="20210325 18:24:30.970"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:30.688" endtime="20210325 18:24:30.970"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:30.971" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.970" endtime="20210325 18:24:30.971"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>RG_FRENTE</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.972" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:30.971" endtime="20210325 18:24:30.972"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.972" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:30.974" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:30.972" endtime="20210325 18:24:30.974"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:30.974" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents?type=RG_FRENTE, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:31.256" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:30.974" endtime="20210325 18:24:31.256"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.257" level="INFO">{'id': '289b9ece415846c784a84bafce48a4cb', 'document_type': 'rg_frente', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/289b9ece415846c784a84bafce48a4cb', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/289b9ece415846c784a84bafce48a4cb/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:31.257" endtime="20210325 18:24:31.258"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.258" level="INFO">e9b35fd0f58c45d3</msg>
+<status status="PASS" starttime="20210325 18:24:31.258" endtime="20210325 18:24:31.258"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.259" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.259" endtime="20210325 18:24:31.260"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.261" level="INFO">${document_external_key} = 289b9ece415846c784a84bafce48a4cb</msg>
+<status status="PASS" starttime="20210325 18:24:31.260" endtime="20210325 18:24:31.261"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.262" level="INFO">${document_external_key} = 289b9ece415846c784a84bafce48a4cb</msg>
+<status status="PASS" starttime="20210325 18:24:31.261" endtime="20210325 18:24:31.262"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:30.971" endtime="20210325 18:24:31.262"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.263" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.262" endtime="20210325 18:24:31.263"></status>
+</kw>
+<kw name="criar holder document" library="accreditation_post_holder_document">
+<arguments>
+<arg>RG_VERSO</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=image/jpeg</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.265" level="INFO">${header} = {'Content-Type': 'image/jpeg'}</msg>
+<status status="PASS" starttime="20210325 18:24:31.264" endtime="20210325 18:24:31.265"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>C:\\Users\\vinicius.trindade\\banking_continuous_testing\\banking_continuous_testing\\apis\\accreditation\\documents\\holder_documents\\post.${/}..${/}..${/}..${/}..${/}..${/}images${/}accreditation${/}image.jpg</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.266" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg"&gt;C:\Users\vinicius.trindade\banking_continuous_testing\banking_continuous_testing\images\accreditation\image.jpg&lt;/a&gt;'.</msg>
+<msg timestamp="20210325 18:24:31.267" level="INFO">${data} = \xff\xd8\xff\xe0JFIF\xf0\xf0\xff\xdbC
+
+
+		
+%# , #&amp;')*)-0-(0%()(\xff\xc0\xa0\xf0\xff\xc4	\xff\xc4=...</msg>
+<status status="PASS" starttime="20210325 18:24:31.265" endtime="20210325 18:24:31.267"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/documents?type=${document_type}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.268" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents?type=RG_VERSO, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'image/jpeg'} 
+data=&lt;image/jpeg&gt; 
+json=None</msg>
+<msg timestamp="20210325 18:24:31.541" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.268" endtime="20210325 18:24:31.541"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.542" level="INFO">{'id': 'ceac78ac84fa407c9d82ea9fcc4d917d', 'document_type': 'rg_verso', 'media_type': 'image_jpeg', 'length': 3135, '_links': {'self': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/ceac78ac84fa407c9d82ea9fcc4d917d', 'type': 'GET'}, 'holder': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c', 'type': 'GET'}, 'download': {'href': 'https://banking-accreditation-internal.staging.zoop.tech/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/documents/ceac78ac84fa407c9d82ea9fcc4d917d/download', 'type': 'GET'}}}</msg>
+<status status="PASS" starttime="20210325 18:24:31.542" endtime="20210325 18:24:31.542"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.543" level="INFO">da9c215281277002</msg>
+<status status="PASS" starttime="20210325 18:24:31.542" endtime="20210325 18:24:31.543"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.544" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.543" endtime="20210325 18:24:31.544"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==201</arg>
+<arg>${response.json()["id"]}</arg>
+</arguments>
+<assign>
+<var>${document_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.544" level="INFO">${document_external_key} = ceac78ac84fa407c9d82ea9fcc4d917d</msg>
+<status status="PASS" starttime="20210325 18:24:31.544" endtime="20210325 18:24:31.544"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${document_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.545" level="INFO">${document_external_key} = ceac78ac84fa407c9d82ea9fcc4d917d</msg>
+<status status="PASS" starttime="20210325 18:24:31.544" endtime="20210325 18:24:31.545"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:31.264" endtime="20210325 18:24:31.545"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.546" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.545" endtime="20210325 18:24:31.546"></status>
+</kw>
+<kw name="solicitar aprovação do holder" library="accreditation_request_approval">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.546" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:31.546" endtime="20210325 18:24:31.547"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/approval</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.547" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/approval, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:31.846" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.547" endtime="20210325 18:24:31.846"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.849" level="INFO">{'message': 'Approval request accepted successfully. Processing analysis'}</msg>
+<status status="PASS" starttime="20210325 18:24:31.847" endtime="20210325 18:24:31.849"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.851" level="INFO">10a5d5b93a0af756</msg>
+<status status="PASS" starttime="20210325 18:24:31.850" endtime="20210325 18:24:31.851"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.853" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.852" endtime="20210325 18:24:31.854"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:31.546" endtime="20210325 18:24:31.854"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:31.856" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.855" endtime="20210325 18:24:31.857"></status>
+</kw>
+<kw name="recebendo notificação de aprovação" library="accreditation_risk_notification">
+<kw name="Uuid 4" library="FakerLibrary">
+<doc>Generates a random UUID4 string.
+:param cast_to: Specify what type the UUID should be cast to. Default is `str`
+:type cast_to: callable</doc>
+<assign>
+<var>${assessment_id}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.859" level="INFO">${assessment_id} = 0ed901d7-d2bc-4de7-9353-91b8d4d23fd5</msg>
+<status status="PASS" starttime="20210325 18:24:31.858" endtime="20210325 18:24:31.859"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>year</arg>
+</arguments>
+<assign>
+<var>${year}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.860" level="INFO">${year} = 2021</msg>
+<status status="PASS" starttime="20210325 18:24:31.860" endtime="20210325 18:24:31.860"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>month</arg>
+</arguments>
+<assign>
+<var>${month}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.861" level="INFO">${month} = 03</msg>
+<status status="PASS" starttime="20210325 18:24:31.861" endtime="20210325 18:24:31.861"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>day</arg>
+</arguments>
+<assign>
+<var>${day}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.863" level="INFO">${day} = 25</msg>
+<status status="PASS" starttime="20210325 18:24:31.862" endtime="20210325 18:24:31.863"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.864" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:31.863" endtime="20210325 18:24:31.864"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"type": "risk.assessment.result",</arg>
+<arg>"resource": "business.holder",</arg>
+<arg>"created_at": "${year}-${month}-${day} 15:28:56.747Z",</arg>
+<arg>"marketplace_id": "${marketplace_external_key}",</arg>
+<arg>"object": {</arg>
+<arg>"result": "APPROVED",</arg>
+<arg>"holder_id": "${holder_external_key}",</arg>
+<arg>"applicant_id": "${application_external_key}",</arg>
+<arg>"assessment_id": "${assessment_id}"</arg>
+<arg>}</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.866" level="INFO">${body} = { "type": "risk.assessment.result", "resource": "business.holder", "created_at": "2021-03-25 15:28:56.747Z", "marketplace_id": "f71a8951368a4cc085cf7875ff44e61c", "object": { "result": "APPROVED", "ho...</msg>
+<status status="PASS" starttime="20210325 18:24:31.864" endtime="20210325 18:24:31.866"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accreditation</arg>
+<arg>/admin/internal_operation/marketplaces/${marketplace_external_key}/banking/accreditation/holders/${holder_external_key}/registration/approval</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:31.867" level="INFO">POST Request using : uri=/admin/internal_operation/marketplaces/f71a8951368a4cc085cf7875ff44e61c/banking/accreditation/holders/057a5d761a714fdd8bfdf72845faf29c/registration/approval, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "type": "risk.assessment.result", "resource": "business.holder", "created_at": "2021-03-25 15:28:56.747Z", "marketplace_id": "f71a8951368a4cc085cf7875ff44e61c", "object": { "result": "APPROVED", "holder_id": "057a5d761a714fdd8bfdf72845faf29c", "applicant_id": "bcc25a6751c14b52af1340d40dba78c5", "assessment_id": "0ed901d7-d2bc-4de7-9353-91b8d4d23fd5" } } 
+json=None</msg>
+<msg timestamp="20210325 18:24:32.059" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:31.866" endtime="20210325 18:24:32.059"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.060" level="INFO">{'message': 'Holder approved successfully'}</msg>
+<status status="PASS" starttime="20210325 18:24:32.060" endtime="20210325 18:24:32.060"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.061" level="INFO">35bc3b9e15b4d87c</msg>
+<status status="PASS" starttime="20210325 18:24:32.061" endtime="20210325 18:24:32.061"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.061" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.061" endtime="20210325 18:24:32.061"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.062" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.062" endtime="20210325 18:24:32.062"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:31.857" endtime="20210325 18:24:32.062"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.062" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.062" endtime="20210325 18:24:32.062"></status>
+</kw>
+<kw name="buscar account por holder" library="accounts_get_accounts_by_holder">
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.063" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:32.063" endtime="20210325 18:24:32.064"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:32.063" endtime="20210325 18:24:32.064"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accounts</arg>
+<arg>/marketplaces/${marketplace_external_key}/holders/${holder_external_key}/accounts</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.065" level="INFO">GET Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/holders/057a5d761a714fdd8bfdf72845faf29c/accounts, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:32.701" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.064" endtime="20210325 18:24:32.701"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.702" level="INFO">{'items': [{'id': 'ff9053a8ce24482b8381354cd7067202', 'holder': '057a5d761a714fdd8bfdf72845faf29c', 'balance': '0.00', 'currency': 'BRL', 'routing_number': '001', 'number': '5001388171', 'status': 'active', 'metadata': {}, 'created_at': '2021-03-25T21:24:32.116783', 'updated_at': '2021-03-25T21:24:32.116783', 'primary': True, 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'uri': '/v2/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/ff9053a8ce24482b8381354cd7067202', 'resource': 'payment_account'}], 'has_more': False, 'limit': 100, 'total_pages': 1, 'page': 1, 'offset': 0, 'total': '1', 'query_count': '1'}</msg>
+<status status="PASS" starttime="20210325 18:24:32.701" endtime="20210325 18:24:32.702"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.702" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.702" endtime="20210325 18:24:32.702"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["id"]}</arg>
+</arguments>
+<assign>
+<var>${account_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.703" level="INFO">${account_external_key} = ff9053a8ce24482b8381354cd7067202</msg>
+<status status="PASS" starttime="20210325 18:24:32.703" endtime="20210325 18:24:32.703"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.704" level="INFO">${account_external_key} = ff9053a8ce24482b8381354cd7067202</msg>
+<status status="PASS" starttime="20210325 18:24:32.703" endtime="20210325 18:24:32.704"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["number"]}</arg>
+</arguments>
+<assign>
+<var>${account_number}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.705" level="INFO">${account_number} = 5001388171</msg>
+<status status="PASS" starttime="20210325 18:24:32.704" endtime="20210325 18:24:32.705"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_number}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.706" level="INFO">${account_number} = 5001388171</msg>
+<status status="PASS" starttime="20210325 18:24:32.706" endtime="20210325 18:24:32.706"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["items"][0]["routing_number"]}</arg>
+</arguments>
+<assign>
+<var>${account_routing_number}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.707" level="INFO">${account_routing_number} = 001</msg>
+<status status="PASS" starttime="20210325 18:24:32.706" endtime="20210325 18:24:32.707"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_routing_number}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.707" level="INFO">${account_routing_number} = 001</msg>
+<status status="PASS" starttime="20210325 18:24:32.707" endtime="20210325 18:24:32.707"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:32.063" endtime="20210325 18:24:32.707"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.708" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.708" endtime="20210325 18:24:32.708"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:29.487" endtime="20210325 18:24:32.708"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${holder_external_key}</arg>
+</arguments>
+<assign>
+<var>${holder_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.709" level="INFO">${holder_receive_ted} = 057a5d761a714fdd8bfdf72845faf29c</msg>
+<status status="PASS" starttime="20210325 18:24:32.709" endtime="20210325 18:24:32.709"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${holder_name}</arg>
+</arguments>
+<assign>
+<var>${holder_name_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.710" level="INFO">${holder_name_receive_ted} = Holder de teste</msg>
+<status status="PASS" starttime="20210325 18:24:32.710" endtime="20210325 18:24:32.710"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+</arguments>
+<assign>
+<var>${holder_national_registration_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.711" level="INFO">${holder_national_registration_receive_ted} = 50147932661</msg>
+<status status="PASS" starttime="20210325 18:24:32.711" endtime="20210325 18:24:32.711"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_external_key}</arg>
+</arguments>
+<assign>
+<var>${account_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.712" level="INFO">${account_receive_ted} = ff9053a8ce24482b8381354cd7067202</msg>
+<status status="PASS" starttime="20210325 18:24:32.712" endtime="20210325 18:24:32.712"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_number}</arg>
+</arguments>
+<assign>
+<var>${account_number_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.713" level="INFO">${account_number_receive_ted} = 5001388171</msg>
+<status status="PASS" starttime="20210325 18:24:32.712" endtime="20210325 18:24:32.713"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_routing_number}</arg>
+</arguments>
+<assign>
+<var>${account_routing_number_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.713" level="INFO">${account_routing_number_receive_ted} = 001</msg>
+<status status="PASS" starttime="20210325 18:24:32.713" endtime="20210325 18:24:32.713"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${national_registration}</arg>
+</arguments>
+<assign>
+<var>${national_registration_receive_ted}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.714" level="INFO">${national_registration_receive_ted} = 50147932661</msg>
+<status status="PASS" starttime="20210325 18:24:32.713" endtime="20210325 18:24:32.714"></status>
+</kw>
+<kw name="Uuid 4" library="FakerLibrary">
+<doc>Generates a random UUID4 string.
+:param cast_to: Specify what type the UUID should be cast to. Default is `str`
+:type cast_to: callable</doc>
+<assign>
+<var>${reference_id}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.714" level="INFO">${reference_id} = f0593753-884d-45b7-ad6f-079c974ccc6e</msg>
+<status status="PASS" starttime="20210325 18:24:32.714" endtime="20210325 18:24:32.714"></status>
+</kw>
+<kw name="criar envio de ted" library="payments_external_transfer_send">
+<arguments>
+<arg>marketplace_external_key=${marketplace_external_key}</arg>
+<arg>holder_external_key=${holder_send_ted}</arg>
+<arg>account_external_key=${account_send_ted}</arg>
+<arg>amount=${amount}</arg>
+<arg>account_check_digit=${account_receive_check_digit}</arg>
+<arg>account_number=${account_number_receive_ted}</arg>
+<arg>bank_code=${bank_code_receive}</arg>
+<arg>document=${holder_national_registration_receive_ted}</arg>
+<arg>name=${holder_name_receive_ted}</arg>
+<arg>routing_check_digit=${routing_check_digit_receive}</arg>
+<arg>routing_number=${account_routing_number_receive_ted}</arg>
+<arg>description=${description}</arg>
+<arg>reference_id=${reference_id}</arg>
+</arguments>
+<kw name="conectar payments" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=payments</arg>
+<arg>url=${payments_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:32.716" level="INFO">Creating Session using : alias=payments, url=https://banking-payments-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:32.715" endtime="20210325 18:24:32.716"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:32.715" endtime="20210325 18:24:32.716"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.716" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20210325 18:24:32.716" endtime="20210325 18:24:32.716"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>{</arg>
+<arg>"amount": ${amount},</arg>
+<arg>"recipient": {</arg>
+<arg>"account_check_digit": "${account_check_digit}",</arg>
+<arg>"account_number": "${account_number}",</arg>
+<arg>"bank_code": "${bank_code}",</arg>
+<arg>"document": "${document}",</arg>
+<arg>"name": "${name}",</arg>
+<arg>"routing_check_digit": "${routing_check_digit}",</arg>
+<arg>"routing_number": "${routing_number}"</arg>
+<arg>},</arg>
+<arg>"description": "${description}",</arg>
+<arg>"reference_id": "${reference_id}"</arg>
+<arg>}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.717" level="INFO">${body} = { "amount": 200, "recipient": { "account_check_digit": "1", "account_number": "5001388171", "bank_code": "208", "document": "50147932661", "name": "Holder de teste", "routing_check_digit": "1", "routi...</msg>
+<status status="PASS" starttime="20210325 18:24:32.716" endtime="20210325 18:24:32.717"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>payments</arg>
+<arg>/marketplaces/${marketplace_external_key}/holders/${holder_external_key}/accounts/${account_external_key}/external-transfer-send</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:32.717" level="INFO">POST Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/accounts/cf485511953c482fa595103198c61a27/external-transfer-send, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={ "amount": 200, "recipient": { "account_check_digit": "1", "account_number": "5001388171", "bank_code": "208", "document": "50147932661", "name": "Holder de teste", "routing_check_digit": "1", "routing_number": "001" }, "description": "Teste Ted", "reference_id": "f0593753-884d-45b7-ad6f-079c974ccc6e" } 
+json=None</msg>
+<msg timestamp="20210325 18:24:33.693" level="INFO">${response} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:32.717" endtime="20210325 18:24:33.693"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.695" level="INFO">202</msg>
+<status status="PASS" starttime="20210325 18:24:33.694" endtime="20210325 18:24:33.695"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.697" level="INFO">{'external_transfer_id': 'da25ca6bbdc24356ae98822aaee6b4ec', 'amount': 200, 'formated_amount': '2.0', 'description': 'Teste Ted', 'reference_id': 'f0593753-884d-45b7-ad6f-079c974ccc6e', 'status': 'AUTHORIZED', 'recipient': {'name': 'Holder de teste', 'document': '50147932661', 'bank_code': '208', 'routing_number': '001', 'routing_check_digit': '1', 'account_number': '5001388171', 'account_check_digit': '1'}}</msg>
+<status status="PASS" starttime="20210325 18:24:33.696" endtime="20210325 18:24:33.698"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.headers['X-REQUEST-ID']}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.700" level="INFO">1d7ac4b004e22acb</msg>
+<status status="PASS" starttime="20210325 18:24:33.698" endtime="20210325 18:24:33.700"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.702" level="INFO">${response} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:33.701" endtime="20210325 18:24:33.702"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==202</arg>
+<arg>${response.json()["external_transfer_id"]}</arg>
+</arguments>
+<assign>
+<var>${payment_external_key}</var>
+</assign>
+<msg timestamp="20210325 18:24:33.704" level="INFO">${payment_external_key} = da25ca6bbdc24356ae98822aaee6b4ec</msg>
+<status status="PASS" starttime="20210325 18:24:33.702" endtime="20210325 18:24:33.704"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${payment_external_key}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.706" level="INFO">${payment_external_key} = da25ca6bbdc24356ae98822aaee6b4ec</msg>
+<status status="PASS" starttime="20210325 18:24:33.705" endtime="20210325 18:24:33.706"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:32.714" endtime="20210325 18:24:33.706"></status>
+</kw>
+<kw name="validar ted" library="asserts">
+<arguments>
+<arg>status_code=202</arg>
+<arg>amount=${amount}</arg>
+<arg>description=${description}</arg>
+<arg>reference_id=${reference_id}</arg>
+<arg>status=AUTHORIZED</arg>
+<arg>recipient_name=${holder_name_receive_ted}</arg>
+<arg>recipient_document=${holder_national_registration_receive_ted}</arg>
+<arg>recipient_bank_code=${bank_code_receive}</arg>
+<arg>recipient_routing_number=${account_routing_number_receive_ted}</arg>
+<arg>recipient_routing_check_digit=${routing_check_digit_receive}</arg>
+<arg>recipient_account_number=${account_number_receive_ted}</arg>
+<arg>recipient_account_check_digit=${account_receive_check_digit}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.708" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:33.708" endtime="20210325 18:24:33.708"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.json()["amount"]}</arg>
+<arg>${amount}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.708" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:33.708" endtime="20210325 18:24:33.709"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["description"]}</arg>
+<arg>${description}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.709" endtime="20210325 18:24:33.709"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["reference_id"]}</arg>
+<arg>${reference_id}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.709" endtime="20210325 18:24:33.709"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["status"]}</arg>
+<arg>${status}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.710" endtime="20210325 18:24:33.710"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["name"]}</arg>
+<arg>${recipient_name}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.710" endtime="20210325 18:24:33.710"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["document"]}</arg>
+<arg>${recipient_document}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.710" endtime="20210325 18:24:33.711"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["bank_code"]}</arg>
+<arg>${recipient_bank_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.711" endtime="20210325 18:24:33.711"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["routing_number"]}</arg>
+<arg>${recipient_routing_number}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.711" endtime="20210325 18:24:33.712"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["routing_check_digit"]}</arg>
+<arg>${recipient_routing_check_digit}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.712" endtime="20210325 18:24:33.712"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["account_number"]}</arg>
+<arg>${recipient_account_number}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.712" endtime="20210325 18:24:33.712"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["account_check_digit"]}</arg>
+<arg>${recipient_account_check_digit}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:33.713" endtime="20210325 18:24:33.713"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:33.707" endtime="20210325 18:24:33.713"></status>
+</kw>
+<kw name="buscar account balance" library="account_get_balance">
+<arguments>
+<arg>marketplace_external_key=${marketplace_external_key}</arg>
+<arg>account_external_key=${account_send_ted}</arg>
+</arguments>
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:33.715" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:33.715" endtime="20210325 18:24:33.715"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:33.715" endtime="20210325 18:24:33.716"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>accounts</arg>
+<arg>/marketplaces/${marketplace_external_key}/accounts/${account_external_key}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:33.716" level="INFO">GET Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/cf485511953c482fa595103198c61a27, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:34.348" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:33.716" endtime="20210325 18:24:34.349"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.349" level="INFO">{'id': 'cf485511953c482fa595103198c61a27', 'holder': 'ea6d44a7b4984b34aad2baf0e9a4e6c4', 'balance': '8999998.00', 'currency': 'BRL', 'routing_number': '001', 'number': '9096487718', 'status': 'active', 'metadata': {}, 'created_at': '2021-03-25T21:24:27.517397', 'updated_at': '2021-03-25T21:24:33.652801', 'primary': True, 'marketplace_id': 'f71a8951368a4cc085cf7875ff44e61c', 'uri': '/v2/marketplaces/f71a8951368a4cc085cf7875ff44e61c/accounts/cf485511953c482fa595103198c61a27', 'resource': 'payment_account'}</msg>
+<status status="PASS" starttime="20210325 18:24:34.349" endtime="20210325 18:24:34.349"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.350" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:34.350" endtime="20210325 18:24:34.350"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${response.status_code}==200</arg>
+<arg>${response.json()["balance"]}</arg>
+</arguments>
+<assign>
+<var>${account_balance}</var>
+</assign>
+<msg timestamp="20210325 18:24:34.351" level="INFO">${account_balance} = 8999998.00</msg>
+<status status="PASS" starttime="20210325 18:24:34.350" endtime="20210325 18:24:34.351"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${account_balance}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.351" level="INFO">${account_balance} = 8999998.00</msg>
+<status status="PASS" starttime="20210325 18:24:34.351" endtime="20210325 18:24:34.351"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:33.714" endtime="20210325 18:24:34.351"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${account_balance}</arg>
+</arguments>
+<assign>
+<var>${account_sender_balance_final}</var>
+</assign>
+<msg timestamp="20210325 18:24:34.352" level="INFO">${account_sender_balance_final} = 8999998.00</msg>
+<status status="PASS" starttime="20210325 18:24:34.352" endtime="20210325 18:24:34.352"></status>
+</kw>
+<kw name="validar debito na account" library="asserts">
+<arguments>
+<arg>account_balance_initial=${account_sender_balance_inicial}</arg>
+<arg>account_balance_final=${account_sender_balance_final}</arg>
+<arg>amount=${amount}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${account_balance_initial} - (${amount}/100)</arg>
+</arguments>
+<assign>
+<var>${account_balance_actual}</var>
+</assign>
+<msg timestamp="20210325 18:24:34.354" level="INFO">${account_balance_actual} = 8999998.0</msg>
+<status status="PASS" starttime="20210325 18:24:34.354" endtime="20210325 18:24:34.354"></status>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<doc>Converts the given item to a floating point number.</doc>
+<arguments>
+<arg>${account_balance_final}</arg>
+</arguments>
+<assign>
+<var>${account_balance_final}</var>
+</assign>
+<msg timestamp="20210325 18:24:34.355" level="INFO">${account_balance_final} = 8999998.0</msg>
+<status status="PASS" starttime="20210325 18:24:34.354" endtime="20210325 18:24:34.355"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${account_balance_final}</arg>
+<arg>${account_balance_actual}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.355" endtime="20210325 18:24:34.355"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.354" endtime="20210325 18:24:34.356"></status>
+</kw>
+<kw name="${index} IN RANGE [ 20 ]" type="for">
+<kw name="${index} = 0" type="foritem">
+<kw name="buscar envio de ted" library="payments_get_external_transfer_send">
+<arguments>
+<arg>marketplace_external_key=${marketplace_external_key}</arg>
+<arg>holder_external_key=${holder_send_ted}</arg>
+<arg>account_external_key=${account_send_ted}</arg>
+<arg>payment_external_key=${payment_external_key}</arg>
+</arguments>
+<kw name="conectar accounts" library="create_session_staging_internal">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>alias=accounts</arg>
+<arg>url=${account_url_base}</arg>
+<arg>disable_warnings=true</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.357" level="INFO">Creating Session using : alias=accounts, url=https://banking-accounts-internal.staging.zoop.tech, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210325 18:24:34.357" endtime="20210325 18:24:34.358"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.357" endtime="20210325 18:24:34.358"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>payments</arg>
+<arg>/marketplaces/${marketplace_external_key}/holders/${holder_external_key}/accounts/${account_external_key}/external-transfer-send/${payment_external_key}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210325 18:24:34.359" level="INFO">GET Request using : uri=/marketplaces/f71a8951368a4cc085cf7875ff44e61c/holders/ea6d44a7b4984b34aad2baf0e9a4e6c4/accounts/cf485511953c482fa595103198c61a27/external-transfer-send/da25ca6bbdc24356ae98822aaee6b4ec, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210325 18:24:34.553" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:34.358" endtime="20210325 18:24:34.553"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.554" level="INFO">{'external_transfer_id': 'da25ca6bbdc24356ae98822aaee6b4ec', 'amount': 200, 'formated_amount': '2.0', 'description': 'Teste Ted', 'reference_id': 'f0593753-884d-45b7-ad6f-079c974ccc6e', 'status': 'PROCESSING', 'recipient': {'name': 'Holder de teste', 'document': '50147932661', 'bank_code': '208', 'routing_number': '001', 'routing_check_digit': '1', 'account_number': '5001388171', 'account_check_digit': '1'}}</msg>
+<status status="PASS" starttime="20210325 18:24:34.553" endtime="20210325 18:24:34.554"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.554" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:34.554" endtime="20210325 18:24:34.554"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.356" endtime="20210325 18:24:34.554"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${response.json()["status"]}' == 'PROCESSING'</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.555" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20210325 18:24:34.555" endtime="20210325 18:24:34.556"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.356" endtime="20210325 18:24:34.556"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.356" endtime="20210325 18:24:34.556"></status>
+</kw>
+<kw name="validar ted" library="asserts">
+<arguments>
+<arg>status_code=200</arg>
+<arg>amount=${amount}</arg>
+<arg>description=${description}</arg>
+<arg>reference_id=${reference_id}</arg>
+<arg>status=PROCESSING</arg>
+<arg>recipient_name=${holder_name_receive_ted}</arg>
+<arg>recipient_document=${holder_national_registration_receive_ted}</arg>
+<arg>recipient_bank_code=${bank_code_receive}</arg>
+<arg>recipient_routing_number=${account_routing_number_receive_ted}</arg>
+<arg>recipient_routing_check_digit=${routing_check_digit_receive}</arg>
+<arg>recipient_account_number=${account_number_receive_ted}</arg>
+<arg>recipient_account_check_digit=${account_receive_check_digit}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.558" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:34.557" endtime="20210325 18:24:34.558"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.json()["amount"]}</arg>
+<arg>${amount}</arg>
+</arguments>
+<msg timestamp="20210325 18:24:34.558" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210325 18:24:34.558" endtime="20210325 18:24:34.558"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["description"]}</arg>
+<arg>${description}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.558" endtime="20210325 18:24:34.559"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["reference_id"]}</arg>
+<arg>${reference_id}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.559" endtime="20210325 18:24:34.560"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["status"]}</arg>
+<arg>${status}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.560" endtime="20210325 18:24:34.560"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["name"]}</arg>
+<arg>${recipient_name}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.560" endtime="20210325 18:24:34.560"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["document"]}</arg>
+<arg>${recipient_document}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.560" endtime="20210325 18:24:34.561"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["bank_code"]}</arg>
+<arg>${recipient_bank_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.561" endtime="20210325 18:24:34.562"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["routing_number"]}</arg>
+<arg>${recipient_routing_number}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.562" endtime="20210325 18:24:34.562"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["routing_check_digit"]}</arg>
+<arg>${recipient_routing_check_digit}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.562" endtime="20210325 18:24:34.563"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["account_number"]}</arg>
+<arg>${recipient_account_number}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.563" endtime="20210325 18:24:34.563"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response.json()["recipient"]["account_check_digit"]}</arg>
+<arg>${recipient_account_check_digit}</arg>
+</arguments>
+<status status="PASS" starttime="20210325 18:24:34.563" endtime="20210325 18:24:34.563"></status>
+</kw>
+<status status="PASS" starttime="20210325 18:24:34.556" endtime="20210325 18:24:34.563"></status>
+</kw>
+<tags>
+<tag>smoke_test</tag>
+</tags>
+<status status="PASS" starttime="20210325 18:24:24.624" endtime="20210325 18:24:34.564" critical="yes"></status>
+</test>
+<doc>Funcionalidade: Criar Chave de Endereçamento
+Eu, como um Holder, portador de uma conta ativa em Banking
+Desejo criar uma chave de endereçamento PIX associada à minha conta</doc>
+<status status="PASS" starttime="20210325 18:24:24.015" endtime="20210325 18:24:34.565"></status>
+</suite>
+<status status="PASS" starttime="20210325 18:24:24.012" endtime="20210325 18:24:34.568"></status>
+</suite>
+<status status="PASS" starttime="20210325 18:24:23.992" endtime="20210325 18:24:34.569"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">smoke_test</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Payments">Payments</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Envio">Payments.Envio</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="Criar Envio de TED">Payments.Envio.Criar Envio de TED</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
