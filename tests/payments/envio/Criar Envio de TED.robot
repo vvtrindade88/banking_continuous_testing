@@ -12,7 +12,7 @@ Resource        ../../../asserts/payments/asserts.robot
 Library          FakerLibrary    locale=pt_BR
 
 *** Variable ***
-${amount}                           200
+${amount}                           399
 ${account_receive_check_digit}      1
 ${bank_code_receive}                208
 ${routing_check_digit_receive}      1
