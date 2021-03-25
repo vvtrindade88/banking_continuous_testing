@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation    Funcionalidade: Criar Chave de Endereçamento
+Documentation    Funcionalidade: Enviar TED
 ...              Eu, como um Holder, portador de uma conta ativa em Banking
-...              Desejo criar uma chave de endereçamento PIX associada à minha conta
+...              Desejo realizar envio de TED
 Resource         ../../../hooks/accreditation/accreditation_create_holder_active.robot
 Resource         ../../../apis/payments/envio/post/payments_external_transfer_send.robot
 Resource         ../../../apis/payments/envio/get/payments_get_external_transfer_send.robot
