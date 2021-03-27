@@ -1,7 +1,11 @@
 *** Keywords ***
 validar chave pix
-  [Arguments]  ${key_status}  ${key_type}  ${key_value}  ${account_external_key}  ${marketplace_external_key}  ${holder_external_key}  ${account_number}  ${account_routing_number}
+  [Arguments]  ${status_code}  ${key_status}  ${key_type}  ${key_value}  ${account_external_key}  ${marketplace_external_key}  ${holder_external_key}  ${account_number}  ${account_routing_number}
   ...          ${account_type}  ${owner_key_name}  ${national_registration}  ${holder_type}  ${psp_code}  ${psp_name}
+
+### Validar status code
+
+  Run Keyword If    '${response.status_code}' != '${status_code}'  Fatal Error  msg=Erro ao criar chave de endereçamento || status_code: ${response.status_code} || message: ${response.json()["message"]}
 
 ### Validar status da chave
   Log     Validar status da chave

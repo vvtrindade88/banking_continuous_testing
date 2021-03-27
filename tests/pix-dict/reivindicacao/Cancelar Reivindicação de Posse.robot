@@ -239,5 +239,4 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     validar not found    message=Claim not found
     ...                  message_code=3004
 
-
-# Cenário: Cancelamento de Reivindiação pelo Doador
+#Cenário: Cancelamento de Reivindiação pelo Doador

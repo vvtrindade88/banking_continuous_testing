@@ -3,7 +3,7 @@ Library   DateTime
 
 *** Keywords ***
 validar reivindicação
-    [Arguments]  ${marketplace_external_key}  ${claim_type}  ${claim_status}  ${key_value}  ${key_type}   ${claimer_name}  ${claimer_national_registration}
+    [Arguments]  ${status_code}  ${marketplace_external_key}  ${claim_type}  ${claim_status}  ${key_value}  ${key_type}   ${claimer_name}  ${claimer_national_registration}
     ...          ${claimer_type}  ${claimer_marketplace}  ${claimer_holder_id}  ${claimer_account_id}  ${claimer_routing_number}  ${claimer_account_number}
     ...          ${claimer_account_type}  ${claimer_psp_code}  ${claimer_psp_name}  ${donor_name}  ${donor_national_registration}  ${donor_type}  ${donor_marketplace}
     ...          ${donor_holder_id}  ${donor_account_id}  ${donor_routing_number}  ${donor_account_number}  ${donor_account_type}  ${donor_psp_code}  ${donor_psp_name}
@@ -11,6 +11,8 @@ validar reivindicação
 
     ${date}  Get Current Date  result_format=datetime
     ${date}  Convert Date      ${date}    exclude_millis=yes	result_format=%Y-%m-%d    date_format=%d-%m-%Y
+
+    Run Keyword If    '${response.status_code}' != '${status_code}'  Fatal Error  msg=Erro ao criar reivindicação || status_code: ${response.status_code} || message: ${response.json()["message"]}
 
     Should Not Be Empty    ${response.json()["id"]}
     Should Be Equal        ${response.json()["marketplace"]}                                                ${marketplace_external_key}
