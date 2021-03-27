@@ -76,7 +76,7 @@ Cenário: Confirmar pagamento PIX de para holder individual utilizando dados com
   ...                        account_external_key=${account_external_key}
   ...                        payment_external_key=${payment_external_key}
 
-  validar pagamento pix    status_code=201
+  validar pagamento pix    status_code=202
   ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=executed
   ...                      amount=${amount}
@@ -113,7 +113,7 @@ Cenário: Confirmar pagamento PIX de para holder individual utilizando dados com
 
   END
 
-  validar pagamento pix    status_code=201
+  validar pagamento pix    status_code=200
   ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=succeeded
   ...                      amount=${amount}

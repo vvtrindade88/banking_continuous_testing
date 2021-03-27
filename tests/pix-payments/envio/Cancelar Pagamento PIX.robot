@@ -69,7 +69,7 @@ Cenário: Cancelar pagamento PIX
   ...                       account_external_key=${account_external_key}
   ...                       payment_external_key=${payment_external_key}
 
-  validar pagamento pix    status_code=201
+  validar pagamento pix    status_code=200
   ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=canceled
   ...                      amount=${amount}
