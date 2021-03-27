@@ -29,6 +29,8 @@ Resource         ../../hooks/accreditation/dados_holder_business.robot
 Resource         ../../hooks/accreditation/dados_partner_individual.robot
 Resource         ../../hooks/accreditation/dados_partner_business.robot
 
+Resource         ../../asserts/status_code/status_code_validade.robot
+
 *** Keywords ***
 criar holder individual ativo
 
@@ -51,39 +53,48 @@ criar holder individual ativo
     ...                        cbo=${cbo}
 
     Set Global Variable      ${holder_name}
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar holder individual
 
     ## Criar Telefone do Holder
     criar holder phone    21    51    996221236
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar telefone do holder
 
     ## Criar Endereço do Holder
     criar holder address    Rio de Janeiro    Rio de Janeiro    Brasil    Bairro de Testes    Rua de Testes    90    apto 200    21550987
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar endereço do holder
 
     ## Criar Documento Selfie do Holder
-    criar holder document    SELFIE
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar holder document    document_type=SELFIE
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do holder
 
     ## Criar Documento RG Frente do Holder
-    criar holder document    RG_FRENTE
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar holder document    document_type=RG_FRENTE
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do holder
 
     ## Criar Documento RG Verso do Holder
-    criar holder document    RG_VERSO
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar holder document    document_type=RG_VERSO
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do holder
 
     ## Solicitar aprovação do holder
     solicitar aprovação do holder
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao solicitar aprovação do holder
 
     ## Receber notificação de aprovação
     recebendo notificação de aprovação
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao receber notificação de aprovação
 
     ## Buscar account do holder
     buscar account por holder
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao buscar account do holder
 
 
 criar holder business ativo
@@ -105,20 +116,25 @@ criar holder business ativo
     criar holder business    holder_type=business    holder_name=${holder_name}    email_business=${email_business}    national_registration=${national_registration}
     ...                      revenue_business=${revenue_business}     cnae=${cnae}    legal_name=${legal_name}    establishment_format=mei
     ...                      establishment_date=${establishment_date}
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar holder business
+
 
     ## Criar Telefone do Holder
     criar holder phone    21    51    996221236
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar telefone do Holder
 
     ## Criar Endereço do Holder
     criar holder address    Rio de Janeiro    Rio de Janeiro    Brasil    Bairro de Testes    Rua de Testes    90    apto 200    21550987
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar endereço do Holder
 
 
     ## Criar documento do Holder
-    criar holder document    CCMEI
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar holder document    document_type=CCMEI
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do holder
 
 
     ## Criar Partner Individual
@@ -137,36 +153,45 @@ criar holder business ativo
     ...                         partner_individual_birthday=${partner_individual_birthday}    partner_individual_mothers_name=${partner_individual_mothers_name}
     ...                         partner_individual_identity_card=${partner_individual_identity_card}    partner_individual_pep=false    partner_individual_percentage=100
     ...                         partner_individual_adm=true  partner_individual_cbo=${partner_individual_cbo}
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar partner individual
 
     ## Cadstrar telefone do Partner
     criar partner phone    21    51    996554785
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar telefone do partner
 
     ## Cadstrar Endereço do Partner
     criar partner address    Rio de Janeiro    Rio de Janeiro    Brasil    Bairro de Testes    Rua de Testes    61    apto 201    21550478
-    Should Be Equal As Integers    ${response.status_code}  201
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar endereço do partner
 
     ## Cadastrar Selfie do Partner
-    criar partner document     SELFIE
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar partner document    document_type=SELFIE
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do partner
 
     ## Cadastrar RG Frente do Partner
-    criar partner document     RG_FRENTE
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar partner document     document_type=RG_FRENTE
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do partner
 
     ## Cadastrar RG Verso do Partner
-    criar partner document     RG_VERSO
-    Should Be Equal As Integers    ${response.status_code}  201
+    criar partner document     document_type=RG_VERSO
+    validar status code    status_code=201
+    ...                    message_error=Erro ao criar ${document_type} do partner
 
     ## Solicitar aprovação do holder
     solicitar aprovação do holder
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao solicitar aprovação do holder
 
     ## Receber notificação de aprovação
     recebendo notificação de aprovação
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao receber notificação de aprovação do holder
 
     ## Buscar account do holder
     buscar account por holder
-    Should Be Equal As Integers    ${response.status_code}  200
+    validar status code    status_code=200
+    ...                    message_error=Erro ao buscar account do holder

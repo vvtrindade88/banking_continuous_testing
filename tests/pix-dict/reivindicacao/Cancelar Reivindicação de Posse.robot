@@ -65,7 +65,8 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     ...                                   entry_external_key=${entry_owner}
 
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_owner}
@@ -112,7 +113,8 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     ...                                   entry_external_key=${entry_claimer}
 
     #Asserts
-    validar chave pix               key_status=waiting_ownership_claiming
+    validar chave pix               status_code=201
+    ...                             key_status=waiting_ownership_claiming
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_claimer}
@@ -141,7 +143,8 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    validar reivindicação    status_code=200
+    ...                      marketplace_external_key=${marketplace_external_key}
     ...                      claim_type=OWNERSHIP
     ...                      claim_status=open
     ...                      key_value=${value}
@@ -188,7 +191,8 @@ Cenário: Cancelamento de Reivindiação pelo Reivindicador
     ...                              account_external_key=${account_claimer}
     ...                              claim_external_key=${claim_external_key}
 
-    validar reivindicação    marketplace_external_key=${marketplace_external_key}
+    validar reivindicação    status_code=200
+    ...                      marketplace_external_key=${marketplace_external_key}
     ...                      claim_type=OWNERSHIP
     ...                      claim_status=waiting_resolution
     ...                      key_value=${value}

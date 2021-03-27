@@ -1,5 +1,6 @@
 *** Settings ***
-Library   DateTime
+Library          DateTime
+Resource         ../../status_code/status_code_validade.robot
 
 *** Keywords ***
 validar reivindicação
@@ -12,7 +13,8 @@ validar reivindicação
     ${date}  Get Current Date  result_format=datetime
     ${date}  Convert Date      ${date}    exclude_millis=yes	result_format=%Y-%m-%d    date_format=%d-%m-%Y
 
-    Run Keyword If    '${response.status_code}' != '${status_code}'  Fatal Error  msg=Erro ao criar reivindicação || status_code: ${response.status_code} || message: ${response.json()["message"]}
+    ## validar status code
+    validar status code    ${status_code}    Erro ao realizar reivindicação de posse
 
     Should Not Be Empty    ${response.json()["id"]}
     Should Be Equal        ${response.json()["marketplace"]}                                                ${marketplace_external_key}

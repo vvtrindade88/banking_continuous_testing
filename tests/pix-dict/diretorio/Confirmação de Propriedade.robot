@@ -29,7 +29,8 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Phone
     criar chave pix    type=phone
     ...                value=${phone_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -54,7 +55,8 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Phone
     ...                                   entry_external_key=${entry_external_key}
 
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -82,7 +84,8 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Email
     ...                value=${email_pix}
     ## Asserts
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -106,7 +109,8 @@ Cenário: Confirmar propriedade de chave de endereçamento do tipo Email
     ...                                   account_external_key=${account_external_key}
     ...                                   entry_external_key=${entry_external_key}
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -136,7 +140,8 @@ Cenário: Reenviar código de verificação
     criar chave pix    type=email
     ...                value=${email_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -166,7 +171,8 @@ Cenário: Reenviar código de verificação
     ...                                   account_external_key=${account_external_key}
     ...                                   entry_external_key=${entry_external_key}
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -197,7 +203,8 @@ Cenário: Confirmar proprierdade de de chave de endereçamento utilizando o cód
     criar chave pix    type=phone
     ...                value=${phone_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -236,7 +243,8 @@ Cenário: Confirmar proprierdade de de chave de endereçamento utilizando sem in
     criar chave pix    type=phone
     ...                value=${phone_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}

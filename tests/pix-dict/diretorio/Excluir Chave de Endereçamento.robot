@@ -24,7 +24,8 @@ Cenário: Excluir chave de endereçamento EVP
     criar chave pix    type=evp
     ...                value=${EMPTY}
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${EMPTY}
     ...                             account_external_key=${account_external_key}
@@ -57,7 +58,8 @@ Cenário: Excluir Chave de Endereçamento do tipo Telefone
     criar chave pix    type=phone
     ...                value=${phone_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -89,7 +91,8 @@ Cenário: Excluir Chave de Endereçamento do tipo Email
     criar chave pix    type=email
     ...                value=${email_pix}
     ## Asserts
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=202
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -118,7 +121,8 @@ Cenário: Excluir Chave de Endereçamento do tipo CPF
     criar chave pix    type=national_registration
     ...                value=${EMPTY}
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${national_registration}
     ...                             account_external_key=${account_external_key}
@@ -147,7 +151,8 @@ Cenário: Excluir Chave de Endereçamento do tipo CNPJ
     criar chave pix    type=national_registration
     ...                value=${EMPTY}
     ## Asserts
-    validar chave pix               key_status=active
+    validar chave pix               status_code=201
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${national_registration}
     ...                             account_external_key=${account_external_key}

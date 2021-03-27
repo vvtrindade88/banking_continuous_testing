@@ -1,13 +1,15 @@
+*** Settings ***
+Resource         ../../status_code/status_code_validade.robot
+
 *** Keywords ***
 validar chave pix
   [Arguments]  ${status_code}  ${key_status}  ${key_type}  ${key_value}  ${account_external_key}  ${marketplace_external_key}  ${holder_external_key}  ${account_number}  ${account_routing_number}
   ...          ${account_type}  ${owner_key_name}  ${national_registration}  ${holder_type}  ${psp_code}  ${psp_name}
 
 ### Validar status code
+  validar status code    ${status_code}    Erro ao criar chave do tipo ${key_type}
 
-  Run Keyword If    '${response.status_code}' != '${status_code}'  Fatal Error  msg=Erro ao criar chave de endereçamento || status_code: ${response.status_code} || message: ${response.json()["message"]}
-
-### Validar status da chave
+## Validar status da chave
   Log     Validar status da chave
   Should Be Equal As Strings    ${response.json()["status"]}          ${key_status}
 
@@ -45,16 +47,12 @@ validar chave pix
   Should Be Equal    ${response.json()["psp"]["code"]}  ${psp_code}
   Should Be Equal    ${response.json()["psp"]["name"]}  ${psp_name}
 
-
-validar busca da chave pix
-  Should Be Equal As Integers   ${response.status_code}              200
-
 ### Validar status da chave
-  Log     Validar status da chave
-  Run Keyword If    '${type}' == 'evp'                 Should Be Equal As Strings    ${response.json()["status"]}          active
-  ...	ELSE IF	'${type}' == 'phone'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
-  ...	ELSE IF	'${type}' == 'email'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
-  ...	ELSE IF	'${type}' == 'national_registration'     Should Be Equal As Strings    ${response.json()["status"]}          active
+  # Log     Validar status da chave
+  # Run Keyword If    '${type}' == 'evp'                 Should Be Equal As Strings    ${response.json()["status"]}          active
+  # ...	ELSE IF	'${type}' == 'phone'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
+  # ...	ELSE IF	'${type}' == 'email'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
+  # ...	ELSE IF	'${type}' == 'national_registration'     Should Be Equal As Strings    ${response.json()["status"]}          active
 
 #### Validando Tipo da chave PIX
   Log    Validando Tipo da chave PIX

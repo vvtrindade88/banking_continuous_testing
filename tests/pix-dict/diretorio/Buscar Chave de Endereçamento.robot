@@ -26,10 +26,9 @@ Cenário: Buscar chave de endereçamento do tipo EVP
     buscar chave pix    holder_external_key=${holder_external_key}
     ...                 account_external_key=${account_external_key}
     ...                 entry_external_key=${entry_external_key}
-    ## Asserts
-    validar busca da chave pix
 
-    validar chave pix               key_status=active
+    validar chave pix               status_code=200
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${national_registration}
     ...                             account_external_key=${account_external_key}
@@ -59,10 +58,9 @@ Cenário: Buscar chave de endereçamento do tipo Phone
     buscar chave pix    holder_external_key=${holder_external_key}
     ...                 account_external_key=${account_external_key}
     ...                 entry_external_key=${entry_external_key}
-    ## Asserts
-    validar busca da chave pix
 
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=200
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -91,10 +89,9 @@ Cenário: Buscar chave de endereçamento do tipo Email
     buscar chave pix    holder_external_key=${holder_external_key}
     ...                 account_external_key=${account_external_key}
     ...                 entry_external_key=${entry_external_key}
-    ## Asserts
-    validar busca da chave pix
 
-    validar chave pix               key_status=waiting_ownership_verification
+    validar chave pix               status_code=200
+    ...                             key_status=waiting_ownership_verification
     ...                             key_type=${type}
     ...                             key_value=${value}
     ...                             account_external_key=${account_external_key}
@@ -120,10 +117,9 @@ Cenário: Buscar chave de endereçamento do tipo CPF
     buscar chave pix    holder_external_key=${holder_external_key}
     ...                 account_external_key=${account_external_key}
     ...                 entry_external_key=${entry_external_key}
-    ## Asserts
-    validar busca da chave pix
 
-    validar chave pix               key_status=active
+    validar chave pix               status_code=200
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${national_registration}
     ...                             account_external_key=${account_external_key}
@@ -149,10 +145,9 @@ Cenário: Buscar chave de endereçamento do tipo CNPJ
     buscar chave pix    holder_external_key=${holder_external_key}
     ...                 account_external_key=${account_external_key}
     ...                 entry_external_key=${entry_external_key}
-    ## Asserts
-    validar busca da chave pix
 
-    validar chave pix               key_status=active
+    validar chave pix               status_code=200
+    ...                             key_status=active
     ...                             key_type=${type}
     ...                             key_value=${national_registration}
     ...                             account_external_key=${account_external_key}

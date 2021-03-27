@@ -38,7 +38,8 @@ Cenário: Criar pagamento PIX de para holder business utilizando dados completos
   ...                                        creditor_psp=${creditor_psp}
   ...                                        pix_description=${pix_description}
 
-  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    status_code=201
+  ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=pending
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}
@@ -77,7 +78,8 @@ Cenário: Criar pagamento PIX de para holder individual utilizando dados complet
   ...                                        creditor_psp=${creditor_psp}
   ...                                        pix_description=${pix_description}
 
-  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    status_code=201
+  ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=pending
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}

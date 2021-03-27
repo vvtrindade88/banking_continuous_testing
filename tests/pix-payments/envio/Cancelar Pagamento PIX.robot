@@ -41,7 +41,8 @@ Cenário: Cancelar pagamento PIX
   ...                                        creditor_psp=${creditor_psp}
   ...                                        pix_description=${pix_description}
 
-  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    status_code=201
+  ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=pending
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}
@@ -68,7 +69,8 @@ Cenário: Cancelar pagamento PIX
   ...                       account_external_key=${account_external_key}
   ...                       payment_external_key=${payment_external_key}
 
-  validar pagamento pix    marketplace_external_key=${marketplace_external_key}
+  validar pagamento pix    status_code=201
+  ...                      marketplace_external_key=${marketplace_external_key}
   ...                      status_pix_payments=canceled
   ...                      amount=${amount}
   ...                      pix_description=${pix_description}

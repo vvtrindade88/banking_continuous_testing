@@ -7,6 +7,7 @@ Resource  ../../../../../ambientes/staging/internal/create_session_staging_inter
 *** Keywords ***
 criar holder document
     [Arguments]  ${document_type}
+    Set Test Variable  ${document_type}
 
     ${header}          Create Dictionary        Content-Type=image/jpeg
     ## O caminho que está inserido no  path do Get Binary File está diretamente relacionado à pasta onde os testes serão executados

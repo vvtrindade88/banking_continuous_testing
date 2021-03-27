@@ -4,7 +4,7 @@ Library   Collections
 
 *** Keywords ***
 validar pagamento pix
-  [Arguments]  ${marketplace_external_key}  ${status_pix_payments}  ${amount}  ${pix_description}
+  [Arguments]  ${status_code}  ${marketplace_external_key}  ${status_pix_payments}  ${amount}  ${pix_description}
   ...  ${debitor_national_registration}  ${debitor_name}  ${debitor_type}  ${debitor_holder_id}  ${debtor_account_psp_code}  ${debtor_account_psp_name}
   ...  ${debtor_digital_account}  ${debtor_account_number}  ${debtor_account_routing_number}  ${debtor_account_type}
   ...  ${creditor_national_registration}   ${creditor_name}  ${creditor_type}  ${creditor_account_psp_code}  ${creditor_account_number}
@@ -13,9 +13,12 @@ validar pagamento pix
   ${date}  Get Current Date  result_format=datetime
   ${date}  Convert Date      ${date}    exclude_millis=yes	result_format=%Y-%m-%d    date_format=%d-%m-%Y
 
+  #Validar sttus code
+  validar status code    ${status_code}    Fluxo de Envio de PIX com erro
+
   Should Be Equal                 ${response.json()["marketplace_id"]}                                  ${marketplace_external_key}
   Should Be Equal                 ${response.json()["status"]}                                          ${status_pix_payments}
-  Should Contain                   ${response.json()["end_to_end_id"]}                                   E19468242
+  Should Contain                  ${response.json()["end_to_end_id"]}                                   E19468242
 
   Run Keyword If    '${response.json()["status"]}' == 'peding'   Should Contain    ${response.json()["message_id"]}    M19468242
   ...	ELSE IF	'${response.json()["status"]}' == 'executed'       Should Contain    ${response.json()["message_id"]}    M19468242
