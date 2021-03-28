@@ -72,9 +72,6 @@ O **RobotFramework** já possui algumas libraries padrões, porém algumas ainda
     > Library          Collections
 
 
-Para acessar outras libraries do RobotFrameworkk, [clique aqui](https://robotframework.org/#libraries)
-
-
 * [Slack Notifications](https://pypi.org/project/robotframework-notifications/) :: Library responsável por notificações via Slack das execuções das Suites do RobotFramework.
 
     **Instalação**

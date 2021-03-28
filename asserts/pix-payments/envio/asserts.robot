@@ -1,6 +1,7 @@
 *** Settings ***
-Library   DateTime
-Library   Collections
+Library     DateTime
+Library     Collections
+Resource    ../../status_code/status_code_validade.robot
 
 *** Keywords ***
 validar pagamento pix
@@ -14,7 +15,8 @@ validar pagamento pix
   ${date}  Convert Date      ${date}    exclude_millis=yes	result_format=%Y-%m-%d    date_format=%d-%m-%Y
 
   #Validar sttus code
-  validar status code    ${status_code}    Fluxo de Envio de PIX com erro
+  validar status code    status_code=${status_code}
+  ...                    message_error=Fluxo de Envio de PIX com erro
 
   Should Be Equal                 ${response.json()["marketplace_id"]}                                  ${marketplace_external_key}
   Should Be Equal                 ${response.json()["status"]}                                          ${status_pix_payments}

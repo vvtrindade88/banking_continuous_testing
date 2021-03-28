@@ -47,13 +47,6 @@ validar chave pix
   Should Be Equal    ${response.json()["psp"]["code"]}  ${psp_code}
   Should Be Equal    ${response.json()["psp"]["name"]}  ${psp_name}
 
-### Validar status da chave
-  # Log     Validar status da chave
-  # Run Keyword If    '${type}' == 'evp'                 Should Be Equal As Strings    ${response.json()["status"]}          active
-  # ...	ELSE IF	'${type}' == 'phone'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
-  # ...	ELSE IF	'${type}' == 'email'                     Should Be Equal As Strings    ${response.json()["status"]}          waiting_ownership_verification
-  # ...	ELSE IF	'${type}' == 'national_registration'     Should Be Equal As Strings    ${response.json()["status"]}          active
-
 #### Validando Tipo da chave PIX
   Log    Validando Tipo da chave PIX
   Run Keyword If    '${type}' == 'evp'                 Should Be Equal As Strings    ${response.json()["key"]["type"]}          ${type}
